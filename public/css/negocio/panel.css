@@ -1,0 +1,291 @@
+/* menu de opciones */
+.menu_opciones {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: var(--color-uno);
+    color: var(--color-cuatro);
+    z-index: 9999;
+    height: 100vh;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+    transition: transform var(--transition-time) ease;
+    transform: translateX(-100%);
+    padding: 1.5em 1em;
+    width: 80%;
+    max-width: 450px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    font-size: calc(16px + 1vw);
+    gap: 15px;
+}
+
+.menu_opciones.show {
+    transform: translateX(0);
+}
+
+#menu-opciones_btnCerrar {
+    font-size: 2em;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+#menu-opciones_btnCerrar:hover {
+    transform: rotate(90deg);
+    transition: transform 0.3s;
+}
+
+.seccion_opciones {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 10px;
+    font-size: .9em;
+    padding-top: 15px;
+}
+
+.seccion-opciones_titulo {
+    font-size: 1.4em;
+    font-weight: 600;
+    color: var(--color-cuatro);
+    margin-bottom: 10px;
+}
+
+.seccion_cambiarNegocio-mensaje {
+    display: none;
+}
+
+.seccion-opciones_lista {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    list-style: none;
+    width: 100%;
+    gap: 10px;
+}
+
+.seccion-opciones_lista li {
+    cursor: pointer;
+    padding: 0.3em 0;
+    width: 100%;
+    transition: color 0.3s, transform 0.3s;
+}
+
+.seccion-opciones_lista li:hover {
+    color: var(--color-dos);
+    transform: translateX(5px);
+}
+
+.seccion-opciones_lista li a {
+    text-decoration: none;
+    color: inherit;
+    width: 100%;
+}
+
+#btn_seccion-estadisticas {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    color: var(--color-cuatro);
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+#btn_seccion-estadisticas:hover {
+    transform: translateX(5px);
+}
+
+/* boton de cerrar sesion */
+.bo-CerraSe {
+    background-color: var(--color-dos);
+    padding: 0.7em;
+    color: var(--color-cuatro);
+    font-size: .8em;
+    transition: background-color 0.3s, transform 0.3s;
+    width: 100%;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+    margin-top: 15px;
+}
+
+.bo-CerraSe:hover {
+    background-color: var(--color-hover);
+    transform: translateX(5px);
+}
+
+
+/* seccion de estadisticas */
+.seccion_estadisticas,.seccion_cambiarNegocio{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 100%;
+    font-size: calc(16px + 1vw);
+    padding:20px .5em;
+    height: 100vh;
+    min-height: fit-content;
+}
+
+.estadisticas-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(300px,1fr));
+    align-items: center;
+    justify-items: center;
+    gap: 10px;
+    width: 100%;
+    gap: 10px;
+    font-size: 1em;
+    padding: 1em ;
+    overflow: auto;
+}
+
+.estadisticas_item{
+    width: 100%;
+    text-align: center;
+    box-shadow: 0 0 8px #00000042;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    gap: 16px;
+    width: 100%;
+    height: 130px;
+    border-radius: var(--border-radius);
+}
+
+/* titulo de las secciones */
+.main-seccion_titulo{
+    color: var(--color-dos);
+    font-weight: 300;
+    font-size: 1.2em;
+    text-align: center;
+}
+
+/* contenedor de cambiar negocios */
+/* ajustes para el contenedor de los negocios */
+.negocios-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+    align-items: center;
+    justify-items: center;
+    gap: 15px;
+    width: 100%;
+    padding: 1em 2.5em;
+}
+
+@media (max-width: 400px) {
+    .negocios-container {
+        padding: 1em 0.5em;
+    }
+}
+
+/* ajustes para el contedor del negocio */
+.negocio-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content:space-between;
+    width: 100%;
+    height:100%;
+    font-size:calc(16px + 1vw);
+    padding:1em .5em;
+    gap: 10px;
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.466);
+    transition: box-shadow .5s ease;
+}
+
+.negocio-container:hover {
+    box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.666);
+    transition: box-shadow .5s ease;
+}
+
+/* ajustes para la cabecera del contenedor */
+.negocio-container_header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+    font-size: 1em;
+}
+
+@media (max-width: 450px) {
+    .negocio-container_header {
+        flex-direction: column;
+    }
+}
+
+/* titulo */
+.negocio-header_titulo {
+    margin-bottom: 10px; /* Añadir margen inferior */
+    text-transform: capitalize;
+    font-weight: 500;
+}
+
+/* logo */
+.negocio-header_logo {
+    width: 100%;
+    max-width: 150px; /* Ajustar el tamaño del logo */
+    object-fit: cover;
+    aspect-ratio: 1/1;
+    border-radius: 50%; /* Para una apariencia circular */
+}
+
+/* ajustes para el cuerpo del contendor */
+.negocio-container_main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    gap: 10px;
+    font-size: 1em;
+}
+
+.negocio-container_parrafo {
+    font-weight: 250;
+    text-align: center; /* Centrar el texto */
+    padding: 0; /* Ajustar el relleno horizontal */
+    width: 100%;
+    color: #333;
+}
+
+/* ajustes para el footer del negocio */
+.negocio-container_footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    justify-items: center;
+    width: 100%;
+    min-width: 210px;
+    gap: 10px;
+}
+
+.negocio-footer_boton {
+    background-color: var(--color-uno);
+    color: var(--color-cuatro);
+    max-width: fit-content;
+    padding: .6em;
+    font-size: .7em;
+}
+@media (max-width:700px) {
+    .negocio-footer_boton {
+        font-size: .8em;
+    }
+}
+@media (max-width:550px) {
+    .negocio-footer_boton {
+        font-size: 1em;
+    }
+}

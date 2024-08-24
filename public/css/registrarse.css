@@ -1,0 +1,249 @@
+body{
+    height: 100vh;
+    background-color: var(--color-uno);
+}
+@media (max-width:500px) {
+    body{
+        margin-top: -50px;
+    }
+}
+
+
+.container{
+    background-color: var(--color-uno);
+    min-height:fit-content;
+    height:100vh;
+    width: 100%;
+    font-size:calc(16px + 1vw);
+    overflow-x: hidden;
+}
+
+/* Estilos generales para el contenedor principal del formulario */
+.main-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    background-color: var(--color-uno);
+    color: var(--color-cuatro);
+    padding:0 .5em;
+    height: 100vh;
+    min-height: min-content;
+}
+
+
+/* Estilos para el contenedor del formulario */
+.formulario {
+    width: 100%;
+    max-width: 600px;
+    min-width: min-content;
+    padding:.5em 1em;
+    background-color:var(--color-uno);
+    font-size: calc(16px + 1vw);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.form-container{
+    width: 100%;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    font-size: 1em;
+    background-color:var(--color-cuatro);
+    border-radius: 10px;
+    margin: 0 auto;
+    padding:0 1em;
+    padding-bottom: 1em;
+}
+/* clase para ocultar las secciones de la pasarela */
+.seccionFlex {
+    display: flex;
+}
+#formVerificacionCodigo{
+    padding: 1em;
+    gap: 1em;
+    min-height: calc(fit-content + 70px);
+    justify-content: flex-start;
+}
+#formLabelCodigo{
+    font-size: 1em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+#formLabelCodigo h3{
+    font-size: 1.3em;
+    text-align: center;
+    font-weight: 600;
+    padding: 8px;
+}
+#formLabelCodigo p{
+    font-size: .8em;
+    text-align: justify;
+    padding:0 5px;
+}
+
+.formulario-container_items{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    width: 100%;
+    border: none;
+    text-align: center;
+    font-size: 1em;
+}
+/* Ajustes para el título de las secciones */
+.form_titulo {
+    font-size: 1em;
+}
+
+.formulario-container_items div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    width: 100%;
+}
+
+/* Estilos para las etiquetas de los campos */
+.form-label {
+    display: block;
+    font-size: 1em;
+    color: var(--color-uno);
+}
+@media (max-width:600px) {
+    .form-label {
+        font-size: .8em;
+    }
+}
+
+/* Estilos para los campos de entrada */
+.form-input {
+    font-size: .9em;
+    width: 100%;
+    min-width: 280px;
+    max-width: 400px;
+    transition: all .5s ease-in;
+}
+.form-input:focus{
+    font-size: 1em;
+    transition: all .5s ease-in;
+} 
+
+/* Estilos para el contenedor de los checkboxes */
+.container_checkbox {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    margin-bottom: 15px;
+    font-size: 0.75em;
+}
+
+/* Estilos para los checkboxes */
+.checkbox {
+    appearance: none;
+    width: 25px;
+    height: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.checkbox:checked {
+    background-color: #007bff;
+}
+
+.checkbox:checked::after {
+    content: '\2713';
+    font-size: 14px;
+    color: #fff;
+    display: block;
+    text-align: center;
+}
+
+.checkbox:hover {
+    border-color: #0056b3;
+}
+/* estilos para los enlaces del checkbox */
+.enlace{
+    color: #000;
+}
+
+/* Estilos para el contenedor del footer del formulario */
+.form-footer_container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    background-color: var(--color-uno);
+    font-size: 1em;
+}
+
+/* Estilos para los botones del footer */
+.form-footer_boton {
+    padding: 10px 20px;
+    font-size: .8em;
+}
+
+.boton_enviar:hover {
+    box-shadow: 0 0 0 3px var(--color-hover);
+}
+/* Clase para esconder los botones según */
+.botonform {
+    display: inline-block;
+}
+
+/* Clase para esconder los botones según */
+.botonNone {
+    display: none;
+}
+
+/* ajustes generales para las secciones */
+.seccion-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    font-size: 1.2em;
+    padding: 0.5em;;
+}
+
+.seccion-titulo{
+    font-weight: 400;
+    text-align: center;
+}
+/* Ajustes para el contenedor si ya hay cuenta */
+.tener-cuenta {
+    font-size: .8em;
+}
+/* parrafo de imprimir mensaje */
+.imprimirMen{
+    color: var(--color-cuatro);
+    display: none;
+    text-align: center;
+    font-size: 1.1em;
+}
+
+/* ajuste especifico para elprogres bar */
+.progessBar:before,.progessBar:after{
+    content: "";
+    position: absolute;
+    inset: 0;
+    width:100%;
+    height: 100%;
+    margin-top:-5px;
+    border-bottom:  10px solid  var(--color-uno);
+    animation: rotate 2s linear infinite;
+}

@@ -1,0 +1,167 @@
+body{
+    height: 100vh;
+    background-color:var(--color-uno);
+}
+@media (max-width:500px) {
+    body{
+        margin-top: -50px;
+    }
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    background-color:var(--color-uno);
+    min-height:fit-content;
+    height:100vh;
+}
+
+
+/* Ajustes generales para el main */
+.main-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(16px + 1vw);
+    width: 100%;
+    background-color: var(--color-uno);
+    color: var(--color-cuatro);
+    gap: 30px;
+    padding: .6em;
+}
+
+/* Ajustes generales para el formulario de registro */
+/* Clase para el formulario completo */
+.formulario {
+    width: 100%;
+    padding:1.5em .3em;
+    border-radius: var( --border-radius);
+    max-width: max-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color:var(--color-uno);
+    gap: 6px;
+}
+.form-container {
+    width: 100%;
+    padding: .2em 5em;
+    font-size:calc(16px + 1vw);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+/* formulario de olvido contraseña */
+#formContainerOlvContra{
+    display: none;
+    padding: .2em .5em;
+    gap: 15px;
+
+}
+
+.formulario-container_items {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    width: 100%;
+    border: none;
+    text-align: center;
+    font-size: 1em;
+}
+/* Clase para ocultar la sección del formulario */
+.seccionFormNone {
+    display: none;
+}
+/* Ajustes para el título de las secciones */
+.form_titulo {
+    margin-bottom: 20px;
+    font-size: 1.5em;
+    font-weight: 600;
+}
+.formulario-container_items div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    width: 100%;
+    font-size: 1em;
+}    
+.form-label{
+    font-size: .9em;
+}
+#formLabelOlvContra{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 1em;
+    text-align: center;
+    gap: 10px;
+}
+#formLabelOlvContra span{
+    display: block;
+    color: #888;
+}
+
+.form-input {
+    font-size: .9em;
+    width: 16em;
+    max-width: 500px;
+    transition: all .5s ease-in;
+}
+@media (max-width:700px) {
+    .form-input{
+        width: 16em;
+        min-width: 300px;
+    }
+}
+@media (max-width:500px) {
+    .form-input{
+        max-width: 350px;
+    }
+}
+.form-input:focus {
+    font-size: 1em;
+    transition: all .5s ease-in;
+}
+
+/* Ajustes para el botón de enviar el formulario */
+.boton_enviar {
+    font-size: .9em;
+}
+.enlace{
+    font-size: .7em;
+}
+
+/* Ajustes para los contenedores de cambiar cuenta */
+.crear-cuenta {
+    font-size: .7em;
+}
+
+#btn-olvContra{
+    border: none;
+    font-size: .8em;
+    background-color: inherit;
+    color: var(--color-cuatro);
+}
+#btn-olvContra:hover{
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.imprimirMen{
+    font-size: .9em;
+    color: var(--color-dos);
+    padding-bottom: 8px;
+}

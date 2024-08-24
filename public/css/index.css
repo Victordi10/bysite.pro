@@ -1,0 +1,692 @@
+
+/* ajustes para la cabecera */
+.header{
+    width: 100%;
+    background-color: #111b28;
+    z-index: 10000;
+    font-size: calc(16px + 1vw);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+}
+
+/* ajustes para el logo */
+.logo{
+    width: 100%;
+    max-width:3em;
+    min-width:2em;
+}
+
+/* ajustes para los botones de inicio de sesion */
+.boton-header{
+    font-size: .8em;
+}
+
+.body-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    font-size:calc(16px + 1vw);
+    background-color: var(--color-uno);
+    color: var(--color-cuatro);
+}
+/* Ajustes generales para los botones */
+.boton {
+    min-width: max-content;
+    font-size: 0.8em;
+    padding: 0.5em 1em;
+    border: none;
+    outline: none;
+    border-radius: var(--border-rad-boton);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.boton a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Clase para los contenedores flex columna y normal para optimizar código */
+.contendor-flexColum {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+}
+
+.contendor-flex {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    gap: 20px;
+}
+
+/* Estilos generales de la cabecera */
+.header-container {
+    background: linear-gradient(to top, #111b28cc,  #111b28b4, #111b287a), url("../img/cover4.jpeg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: var(--color-cuatro);
+    width: 100%;
+    min-height: 450px;
+    height: auto;
+    max-height: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content:flex-start;
+    padding: 50px 0;
+    gap: 30px;
+}
+
+/* Estilos de la navegación */
+.nav {
+    width: 100%;
+    z-index: 10000;
+    font-size: calc(16px + 1vw);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+/* Estilos de la sección de cover */
+.seccion-cover {
+    font-size: calc(16px + 1vw);
+    padding: 0.5em 1.5em;
+    gap: 30px;
+    text-align: center;
+    width: 100%;
+    max-width: 1000px;
+}
+
+@media (max-width: 700px) {
+    .seccion-cover {
+        padding: 0.5em;
+    }
+}
+
+.cover-titulo {
+    font-size: 2em;
+    font-weight: 600;
+    color: var(--color-cuatro);
+    line-height: 1.5;
+}
+
+@media (max-width: 500px) {
+    .cover-titulo {
+        font-size: 1.7em;
+    }
+}
+
+.cover-parrafo {
+    font-size: 0.81em;
+    line-height: 1.5;
+    margin: 0;
+    padding: 0 4px;
+}
+
+
+/* Estilos de los botones del cover */
+.cover-botones_container {
+    display: flex;
+    gap: 20px;
+}
+.cover-boton {
+    font-size: 0.8em;
+    transition: all 0.3s ease;
+}
+
+.cover-boton:hover {
+    transform: scale(1.05);
+    color: var(--color-cuatro);
+}
+@media (max-width: 500px) {
+    .cover-botones_container {
+        flex-direction: column;
+    }
+    .cover-boton {
+        font-size: 0.9em;
+    }
+}
+
+/* Estilo específico para el botón de registrarse */
+.cover-btn_1 {
+    background-color: var(--color-cuatro);
+    color: var(--color-uno);
+    border: 2.5px dotted var(--color-dos);
+    padding: 10px 20px;
+    font-size: 1em;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-decoration: none;
+    display: inline-block;
+}
+
+.cover-btn_1:hover {
+    border: 2px solid var(--color-dos);
+    background-color: var(--color-dos);
+    color: var(--color-cuatro);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px);
+}
+
+.cover-btn_1:active {
+    transform: translateY(0);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* ajustes generales para el main */
+.main-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.seccion-demostracion {
+/*     display: grid;
+    grid-template-columns: repeat(2, 1fr); */
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    gap: 20px;
+    width: 100%;
+    padding: 3em 1.7em;
+    font-size: calc(16px + 1vw);
+    background-color: var(--color-uno);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+.seccion-demostracion_mitad{
+    flex-direction: row-reverse;
+}
+.demostracion-texto {
+    text-align: center;
+    padding: 1em .5em;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    width: 45%;
+}
+
+.demostracion-texto:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.demostracion-texto h2 {
+    font-size: 1.5em;
+    color: var(--color-dos);
+    font-weight: 600;
+}
+
+.demostracion-texto p {
+    font-size: 1em;
+    color: var(--color-cuatro);
+    opacity: .8;
+}
+
+.video-demostracion {
+    width: 55%;
+    border-radius: 20px;
+    object-fit: cover;
+    object-position: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.video-demostracion:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+@media (max-width: 900px) {
+    .seccion-demostracion {
+        flex-direction: column;
+        gap: 20px;
+        padding: 2em 1em;
+    }
+    .demostracion-texto {
+        padding: 1em .5em;
+        width: 100%;
+    }
+
+    .video-demostracion {
+        width: 90%;
+        height: auto;
+    }
+}
+
+@media (max-width: 600px) {
+    .demostracion-texto h2 {
+        font-size: 1.5em;
+    }
+
+    .demostracion-texto p {
+        font-size: 0.9em;
+    }
+}
+
+/* Sección CTA */
+.seccion-cta {
+    width: 100%;
+    padding: 2em;
+    font-size: calc(16px + 1vw);
+    text-align: center;
+    background: linear-gradient(135deg, #222b368e,  #1c293ab4, #111b288a);
+    color: var(--color-cuatro);
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    margin: 2em 0;
+    transition: transform 0.3s ease-in-out;
+}
+
+.seccion-cta:hover {
+    transform: translateY(-10px);
+}
+
+.seccion-cta p {
+    font-size: 1.5em;
+    margin-bottom: 0.5em;
+    font-weight: bold;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.seccion-cta a {
+    font-size: 1.1em;
+    text-decoration: none;
+    color: var(--color-cuatro);
+    background-color: var(--color-dos);
+    padding: 0.5em 1.5em;
+    border-radius: 5px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.seccion-cta a:hover {
+    background-color: var(--color-hover);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+.seccion-cta a:active {
+    transform: scale(0.98);
+}
+/* Estilos para la sección de beneficios */
+.seccion-beneficios {
+    overflow: hidden;
+    padding: 3em 2em;
+    font-size: calc(16px + 0.5vw);
+    width: 100%;
+    background-color: var(--color-cuatro);
+    color: var(--color-uno);
+    border-radius: var(--border-radius) var(--border-radius) 0 0;
+    box-shadow: var(--box-shadow);
+    text-align: center; /* Centra todo el texto */
+}
+
+.beneficios-titulo {
+    font-weight: 700;
+    font-size: 2.8em;
+    color: var(--color-dos);
+    margin-bottom: 1.5em;
+}
+
+.beneficios-container {
+    display: flex;
+    align-items: flex-start; /* Alinea los elementos al principio del contenedor */
+    justify-content: center;
+    gap: 2em;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+.beneficios-listas {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column; /* Dispone los elementos verticalmente */
+    gap: 1.5em;
+    max-width: 800px; /* Limita el ancho de las listas */
+    margin: 0 auto; /* Centra las listas horizontalmente */
+}
+
+.beneficios-listas li {
+    background-color: var(--color-uno);
+    color: var(--color-cuatro);
+    border-radius: var(--border-radius);
+    padding: 1.5em;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column; /* Alinea los elementos verticalmente */
+    gap: 1em; /* Espacio entre el icono y el texto */
+}
+
+.beneficios-listas li:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.beneficio-cabecera {
+    background-color: var(--color-dos);
+    width: 100%;
+    padding: 1em;
+    border-radius: var(--border-radius);
+    display: flex;
+    align-items: center;
+    justify-content: start; /* Alinea los elementos al inicio */
+    gap: 15px;
+}
+
+.beneficio-cabecera h3 {
+    font-size: 1.5em;
+    color: var(--color-cuatro);
+    font-weight: 600;
+}
+
+.beneficio-icono {
+    font-size:1.9em;
+    color: var(--color-cuatro);
+}
+
+.beneficio-texto {
+    font-size: 1em;
+    color: #999;
+    margin: 0.5em 0;
+    line-height: 1.5;
+}
+
+/* Adaptaciones para dispositivos móviles */
+@media (max-width: 768px) {
+    .seccion-beneficios {
+        padding: 2em 1.5em;
+    }
+    .beneficios-titulo {
+        font-size: 2.2em;
+        margin-bottom: 1em;
+    }
+    .beneficio-cabecera h3 {
+        font-size: 1.4em;
+    }
+    .beneficio-icono {
+        font-size: 1.8em;
+    }
+}
+
+@media (max-width: 500px) {
+    .beneficio-cabecera {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .beneficio-texto {
+        font-size: 1.03em;
+        margin-top: 0.5em;
+    }
+}
+
+
+/* Estilos para la sección de catálogos de demostración */
+.seccion-catalogos {
+    text-align: center;
+    background-color: var(--color-cuatro);
+    color: var(--color-uno);
+    border-radius: 0 0 var(--border-radius) var(--border-radius);
+    box-shadow: var(--box-shadow);
+    margin-bottom: 2em;
+    width: 100%;
+    padding: .5em;
+}
+
+.catalogos-titulo {
+    font-size: 1.5em;
+    font-weight: 700;
+    margin-bottom: 1.5em;
+    color: var(--color-dos);
+    word-spacing: 0.2em; /* Ajusta el valor según lo necesites */
+}
+
+.catalogos-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5em;
+    flex-wrap: wrap;
+    padding: 1.5em;
+}
+
+.catalogo-item {
+    display: block;
+    width: 100%;
+    max-width: 200px;
+    border-radius: var(--border-rad-boton);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.catalogo-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.catalogo-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Adaptaciones para dispositivos móviles */
+@media (max-width: 700px) {
+    .catalogos-container {
+        gap: 1em;
+    }
+}
+
+/* ultimo boton cta */
+.btn-crear-catalogo {
+    background-color: var(--color-dos);
+    border: none;
+    border-radius: var(--border-rad-boton);
+    color: var(--color-cuatro);
+    cursor: pointer;
+    font-size: 1em;
+    padding: 0.75em 1.5em;
+    margin: 0.5em;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    text-transform: uppercase;
+    display: inline-block;
+}
+
+.btn-crear-catalogo a {
+    color: inherit;
+    text-decoration: none;
+    display: block;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+
+.btn-crear-catalogo:hover {
+    background-color: var(--color-hover);
+    transform: scale(1.05);
+}
+
+.btn-crear-catalogo:focus {
+    outline: none;
+}
+
+.btn-crear-catalogo:active {
+    background-color: var(--color-tres);
+}
+
+
+/* seccion de preguntas  */
+.seccion-faq {
+    background-color: var(--color-uno);
+    color: var(--color-cuatro);
+    padding: 2em 1.5em;
+    border-radius: var(--border-radius);
+}
+
+.faq-titulo {
+    color: var(--color-dos);
+    font-size: 2em;
+    margin-bottom: 1em;
+    text-align: center;
+}
+
+.faq-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.faq-item {
+    margin-bottom: 1em;
+}
+
+.faq-pregunta {
+    background-color: var(--color-tres);
+    color: var(--color-cuatro);
+    border: none;
+    padding: 1em;
+    width: 100%;
+    text-align: left;
+    font-size: 1.2em;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.faq-pregunta:hover {
+    background-color: var(--color-hover);
+}
+
+.faq-respuesta {
+    display: none;
+    padding: 1em;
+    background-color: var(--color-uno);
+    border-radius: var(--border-radius);
+}
+
+.faq-respuesta p {
+    margin: 0;
+    color: var(--color-cuatro);
+}
+
+
+
+.footer-container {
+    display: flex;
+    justify-content: space-around;
+    gap: 10px;
+    align-items: center;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 25px 40px;
+}
+
+.info {
+    flex: 1;
+    min-width: 200px;
+    font-size: calc(16px + 1vw);
+}
+
+.info h3 {
+    font-size: 1em;
+    margin-bottom: 10px;
+}
+
+.info ul {
+    list-style: none;
+    padding: 0;
+    font-size: .9em;
+}
+
+.info ul li {
+    margin-bottom: 8px;
+}
+
+.info ul li a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.info ul li a:hover {
+    color: #1e90ff;
+}
+
+.logo-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.logo {
+    width: 100px;
+}
+
+.seguimiento-texto {
+    font-size: .9em;
+    color: var(--color-cuatro);
+    text-align: center;
+    margin: 1em 0;
+    font-weight: 600;
+    opacity: .8;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    flex: 1;
+    min-width: 200px;
+}
+
+.social-icons a {
+    margin: 0 10px;
+    color: white;
+    font-size: 1.5em;
+    transition: transform 0.3s;
+}
+
+.social-icons a:hover {
+    transform: scale(1.1);
+    color: #1e90ff;
+}
+
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .info, .social-icons {
+        text-align: center;
+        margin: 10px 0;
+    }
+
+    .logo-container {
+        margin: 20px 0;
+    }
+}

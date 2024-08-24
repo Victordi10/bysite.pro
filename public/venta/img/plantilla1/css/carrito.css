@@ -1,0 +1,474 @@
+/* Sección del carrito */
+.seccion-carrito {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    transform: scale(0);
+    opacity: 0;
+    transition: all .1s ease-in;
+    background-color: var(--color-cuatro);
+    padding: .5em;
+}
+.mostrarCarrito {
+    transform: scale(1);
+    opacity: 1;
+    transition: all .2s ease;
+    z-index: 2000000;
+} 
+
+/* Carrito container */
+.carrito-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: .5em;
+    padding-bottom: 30px;
+    gap: 15px;
+    width: 100%;
+    height: 95%;
+    background-color: var(--color-fondo);
+    z-index: 20000;
+    overflow: auto;
+    min-height: fit-content;
+    font-size: calc(16px + 1vw);
+}
+
+.carrito-header {
+    border-bottom: .5px solid var(--color-dos);
+    position: sticky;
+    top: 0;
+}
+.carrito-header, .carrito-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1em;
+    width: 100%;
+    padding: .2em;
+    font-size: 1.05em;
+}
+.carrito-footer {
+    border-top: .5px solid var(--color-dos);
+    position: sticky;
+    bottom: 0;
+}
+
+/* Main del carrito */
+.carrito-main {
+    display: flex;
+    align-items:center;
+    justify-content: flex-start;
+    flex-direction: column;
+    gap: .5em;
+    width: 100%;
+    height: 100%;
+    min-height: min-content;
+    overflow: auto;
+    font-size: 1.05em;
+}
+.carrito-mensaje {
+    opacity: .7;
+    align-items: center;
+    padding: .2em;
+}
+.carrito-producto {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    gap: .7em;
+    font-size: .9em;
+    padding: .5em;
+    text-align: center;
+}
+.carrito-producto_foto {
+    width: 100%;
+    max-width: 7em;
+    max-height: 7em;
+    object-fit: contain;
+    border-radius: 1.2em;
+}
+.carrito-producto_detalles {
+    flex-shrink: 3;
+    font-size: 1em;
+}
+.carrito-producto_control {
+    flex-shrink: 0;
+}
+.carrito-producto_detalles, .carrito-producto_control {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: .6em;
+}
+.carrito-producto_botonesCan {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    gap: .2em;
+}
+
+/* Botones del carrito */
+.carrito-boton {
+    border: none;
+    outline: none;
+    padding: .3em .5em;
+    background-color: var(--color-uno);
+    color: var(--color-cuatro);
+    border-radius: .5em;
+    font-size: .9em;
+    cursor: pointer;
+}
+.carritoCerrarBoton {
+    color: var(--color-dos);
+    border: none;
+    outline: none;
+    padding: .3em .5em;
+    border-radius: .5em;
+    font-size: .8em;
+    cursor: pointer;
+}
+
+/* Sección del formulario del carrito */
+.seccion-formulario_carrito {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: center;
+    gap: 3px;
+    width: 100%;
+    font-size: calc(16px + 1vw);
+    display: none;
+    background-color: var(--color-cuatro);
+    overflow: auto;
+    min-height: fit-content;
+    height: 95%;
+}
+.seccion-formulario_carrito footer ,.seccion-formulario_carrito header{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    font-size: 1.1em;
+}
+.CerrarFormCarrito{
+    font-size: 1.5em;
+    cursor: pointer;
+}
+.carrito-formulario {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    width: 100%;
+    height: 100%;
+    gap: 10px;
+    overflow: auto;
+}
+
+.carrito_form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    width: 100%;
+    min-height: min-content;
+    border: none;
+    background-color: var(--color-dos);
+    padding: 1em;
+    border-radius: 1.5em;
+    gap: .5em;
+    font-size: 1em;
+    height: 40%;
+}
+.carrito_form-titulo {
+    color: var(--color-cuatro);
+    text-align: center;
+    font-size: .8em;
+}
+.carrito-input, .select-pago, .carrito-form_textarea {
+    padding: .5em 1em;
+    width: 100%;
+    max-width: 20em;
+    border-radius: 1.5em;
+    border: none;
+    outline: none;
+    background-color: #2d2d2d;
+    color: var(--color-cuatro);
+    transition: all .5s ease-in;
+    border: 2px solid var(--color-uno);
+    font-size: .8em;
+}
+.carrito-input:focus, .carrito-form_textarea:focus, .select-pago:focus {
+    border: 2px solid var(--color-dos);
+    padding: .5em 1.5em;
+    background-color: var(--color-uno);
+}
+/* contenedor de las opciones de envio a domicilio */
+#direccion-container{
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    font-size: 1em;
+}
+
+/* Opciones */
+.option-pago {
+    width: 15em;
+    padding: 2em;
+    background-color: var(--color-uno);
+    font-size: 1.05em;
+}
+.option-pago:checked {
+    background-color: var(--color-dos);
+    color: var(--color-cuatro);
+    font-size: 1.3em;
+}
+
+/* Checkbox del formulario */
+.checkbox-container {
+    display: inline-block;
+    vertical-align: middle;
+    width: max-content;
+    font-size: .9em;
+    gap: .2em;
+    color: var(--color-cuatro);
+    position: relative;
+    padding-left: 25px;
+}
+.carrito-checkbox {
+    display: none;
+}
+.checkbox-container label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 20px;
+    height: 20px;
+    background-color: var(--color-cuatro);    max-height: 95vh;
+
+    background-color: var(--color-uno);
+}
+.checkbox-container label:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+.checkbox-container .carrito-checkbox:checked + label:after {
+    display: block;
+    left: 7px;
+    top: 3px;
+    width: 5px;
+    height: 10px;
+    border: solid var(--color-cuatro);
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+/* Input de dirección */
+#input-direccion {
+    display: none;
+}
+
+/* Textarea y botón */
+.carrito-form_textarea {
+    resize: none;
+    width: 100%;
+    height: 100%;
+    min-height: 10em;
+    background-color: var(--color-dos);
+    max-width: none;
+    flex-grow: 3;
+}
+.carrito-form_boton {
+    border: none;
+    outline: none;
+    padding: .3em 1em;
+    background-color: var(--color-uno);
+    color: var(--color-cuatro);
+    border-radius: .5em;
+    font-size: .9em;
+    cursor: pointer;
+    margin: auto;
+    width: 10em;
+}
+
+
+
+/* ajustes para el focus de los productos */
+/* Estilos para el overlay */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    transform: scale(0);
+    opacity: 0;
+    transition: all .3s ease-in-out;
+    width: 100%;
+    height: 100vh;
+    min-height: fit-content;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    padding: .8em;
+    overflow: auto;
+    z-index: 1000;
+    font-size: calc(16px + 1vw);
+}
+
+.mostrarOvelayModal {
+    transform: scale(1);
+    opacity: 1;
+    transition: all .3s ease-in-out;
+}
+
+/* .no-scroll {
+    overflow: hidden;
+} */
+
+/* Estilos para el contenedor de la ventana modal */
+.producto-focus_container {
+    background-color: var(--color-cuatro);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    width: 100%;
+    max-width: 900px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    justify-items: center;
+    gap: 30px;
+    font-size: 1em;
+    margin-top: -40px;
+    min-height: fit-content;
+}
+
+@media (max-width: 700px) {
+    .producto-focus_container {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+}
+.modal-overlay_div{
+    background-color: var(--color-cuatro);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    box-shadow: 5px 0 5px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 900px;
+    gap: 30px;
+    font-size: 1em;
+    margin-top: -50px;
+    min-height: fit-content;
+    z-index: 55;
+}
+.botonCerrarFocusProductos {
+    background: none;
+    border: none;
+    font-size: 30px;
+    color: var(--color-uno);
+    cursor: pointer;
+}
+
+/* Estilos opcionales para los elementos internos de la ventana modal */
+.producto-focus_foto {
+    width: 100%;
+    height: 100%;
+    max-height: 350px;
+    max-width: 350px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 12px;
+}
+
+.producto-focus_detalles {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    gap: 5px;
+    width: 100%;
+}
+
+.producto-focus_nombre {
+    color: #333;
+    font-size: 1.5em;
+    margin-bottom: 0.2em;
+}
+
+.producto-focus_precio {
+    color: var(--color-dos);
+    font-size: 1.2em;
+    margin-bottom: .2em;
+}
+
+.producto-focus_descripcion {
+    color: #666;
+    margin-bottom: 1em;
+}
+
+.producto-focus_footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    gap: 15px;
+}
+@media (max-width:500px) {
+    .producto-focus_footer {
+        flex-direction: column;
+    }
+}
+
+.producto-focus_carrito {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.producto-focus_boton {
+    border: none;
+    outline: none;
+    padding: 0.5em 1em;
+    background-color: var(--color-dos);
+    color: #fff;
+    border-radius: 5px;
+    font-size: .6em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.producto-focus_boton:hover {
+    background-color: var(--color-uno);
+}
+
+.boton-gregar_carrito {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    padding: 0.5em 1.5em;
+    font-size: 1em;
+    background-color: var(--color-uno);
+    border-radius: 5px;
+    color: #fff;
+}
+
+.boton-gregar_carrito i {
+    font-size: 1.2em;
+}

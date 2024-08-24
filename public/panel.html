@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="keywords" content="markeplace, comercio electronico, paginas web" />
+  <meta name="description"
+    content="Somos bysite pro una plataforma de comercio electornico en el que podras crear y administrar tu negocio de manera efectiva y facil" />
+  <meta name="author" content="Victor Manuel Cordoba" />
+  <meta name="copyright" content="Bysite pro" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <!-- ajustes de estilos -->
+  <link rel="stylesheet" href="../../css/estilos.css" />
+  <link rel="stylesheet" href="../../css/panel.css" />
+  <link rel="stylesheet" href="../../css/suscribirse.css" />
+  <link rel="icon" href="../../img/icon.jpeg" />
+  <!-- biblio para iconos -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
+
+  <title>panel de negocios</title>
+</head>
+
+<body>
+  <div class="div-container">
+    <input type="hidden" id="sucripcion" value="%=suscripcion%>" />
+    <input type="hidden" id="usuarioCorreo" value="%=usuarioCorreo%>" />
+
+    <header class="cabecera">
+      <div class="header-container" id="panel_header">
+        <img src="../../img/logoSinFondo.png" alt="logo de bysite pro"class="header-logo logo" />
+        <div class="header-botones_container">
+          <i class="fas fa-bars botones-header" id="boMenu"></i>
+          <i class="fas fa-times botones-header" id="boCMenu"></i>
+        </div>
+      </div>
+      <nav class="menu_container">
+        <button class="boton boton_menu suscribirse-btn" id="suscribirseBtnMenu"><i class="fas fa-user-plus"></i> Suscripción</button>
+        <button class="boton boton_menu"> 
+          <a href="https://wa.me/+573103015179" target="_blank"  >
+            <i class="fab fa-whatsapp" style="font-size: 27px;"></i>
+            Contáctanos
+          </a>
+       </button>
+        <button class="boton boton_menu"> 
+          <a href="https://youtube.com/@bysite_pro" target="_blank"  >
+            <i class="fas fa-chalkboard-teacher"></i>
+            Tutoriales
+          </a>
+       </button>
+        <button class="bo-CerraSe boton boton_menu"><i class="fas fa-sign-out-alt"></i> Cerrar Sesión</button>
+      </nav>
+    </header>
+
+    <div class="suscribirse-container">
+      <p class="suscribirse-parrafo">
+      </p>
+      <button class="footer-boton suscribirse-btn boton" id="suscribirseBtn"></button>
+    </div>
+    
+    <main class="main-container panel-main">
+      <!-- progressBar -->
+      <div class="progessBar-container" id="progessBar-container_obtener">
+        <div class="progessBar" id="progessBar_obtener"></div>
+      </div>
+      <!-- contenedor que pregunta si se desean eliminar el negocio  -->
+      <div class="main-pregunta_container">
+        <p>
+          Los cambios no se podran desacer<br /> <span class="preguntaBorrarOpcion">¿Seguro que desea elimiar el negocio?</span>
+        </p>
+        <div class="pregunta-botones_container">
+          <button class="boton-pregunta pregunta_cancelar boton">Cancelar</button>
+          <!-- progresBarr -->
+          <div class="progessBar-container" id="progessBar-container_eliminar">
+            <div class="progessBar" id="progessBar_eliminar"></div>
+          </div>
+          <button class="boton-pregunta pregunta_aceptar boton">Eliminar</button>
+          <button class="boton-pregunta pregunta_cancelarSubs boton">Si quiero</button>
+          
+        </div>
+      </div>
+      <!-- imprimir mensajes en ventana modal -->
+      <div class="mensajes-modal">
+        <i class="fas fa-times boton_funcional" id="btn_mensajeModalCerrar" style="color: #fff;font-size: 50px;"></i>
+        <p class="imprimirMen imprimirMenModal"></p>
+      </div>
+      <!-- imprimir error en obtener los negocios -->
+      <p class="imprimirMen imprimirMen_obtener"></p>
+      <!--DATOS_USUARIO-->
+      <section class="negocios-container" id="containerNegocios">
+      </section>
+
+      <div class="formulario" id="formulario">
+        <!-- boton para cerrar el formulario -->
+        <form action="" class="form-container" id="formContainer" enctype="multipart/form-data">
+         <!-- Formulario HTML -->
+         <fieldset class="formulario-container_items">
+          <legend class="form_titulo">Información del negocio</legend>
+          <div>
+            <label for="tipoNegocio" class="form-label">¿Que vendes?</label>
+            <select name="tipoNegocio" id="tipoNegocio" class="form-select" required>
+                <option value="" disabled>Seleccione un tipo de negocio</option>
+            </select>
+        </div>
+          <div>
+              <input type="hidden" name="id_unico" id="id_unico" value="%= id_unico %>" />
+              <label for="negocioNombre" class="form-label">Nombre del negocio:</label>
+              <input type="text" placeholder="Nombre del negocio" name="negocioNombre" id="negocioNombre" class="form-input" required />
+          </div>
+          <div>
+              <label for="negocioLogo" class="form-label archivo_label" id="negocioLogoLabel">Logo del negocio:</label>
+              <input type="file" accept="image/*" name="negocioLogo" id="negocioLogo" class="archivo_input form-input" required />
+          </div>
+          <div>
+            <label for="negocioDesc" class="form-label">Descripción del negocio</label>
+            <textarea placeholder="Descripción" name="negocioDesc" id="negocioDesc" class="form-textarea form-input" required></textarea>
+          </div>
+      </fieldset>
+      <fieldset class="formulario-container_items">
+        <legend class="form_titulo">Colores del negocio</legend>
+        <p class="form-registro_descripcion">Colores que se verán en tu catálogo online</p>
+        <div>
+            <label for="colorFondo" class="form-label form-label_color">Color de fondo de la página</label>
+            <input type="color" name="colorFondo" id="colorFondo" class="form-input_color" required />
+            <input type="text" name="hexColorFondo" id="hexColorFondo" class="form-input_hex form-input" placeholder="#000000" required maxlength="7"/>
+        </div>
+        <div>
+            <label for="colorUno" class="form-label form-label_color">Color Principal</label>
+            <input type="color" name="colorUno" id="colorUno" class="form-input_color" required />
+            <input type="text" name="hexColorUno" id="hexColorUno" class="form-input_hex form-input" placeholder="#000000" required maxlength="7"/>
+        </div>
+        <div>
+            <label for="colorDos" class="form-label form-label_color">Color secundario</label>
+            <input type="color" name="colorDos" id="colorDos" class="form-input_color" required />
+            <input type="text" name="hexColorDos" id="hexColorDos" class="form-input_hex form-input"  placeholder="#000000" required maxlength="7" />
+        </div>
+    </fieldset>
+        </form>
+        <footer class="form-footer_container">
+          <button class="form-footer_boton boton_anterior boton">Anterior</button>
+          <!-- progres bar -->
+          <div class="progessBar-container" id="progessBar-container_crearNegocio">
+            <div class="progessBar" id="progessBar_crearNegocio"></div>
+          </div>
+          <button class="form-footer_boton boton_enviar boton">Crear Negocio</button>
+        </footer>
+      </div>
+      
+      
+      <section class="seccion-pasarela">
+        <i class="fas fa-times boton_funcional" id="btn-planesCerrar"></i>
+      <div class="seccion-planes div-pasarela">
+      <div class="planes-container">
+<!--         <div class="plan">
+          <header class="plan-header plan-empresario_header">
+            <h3>Plan Empresario</h3>
+            <span class="plan-precio">$ 120.000</span>
+            <p>Precio mensual</p>
+          </header>
+          <ul class="plan-lista">
+            <li>
+              <p><i class="fas fa-building"></i> 3 Negocios</p>
+              <span><i class="fas fa-check"></i></span>
+            </li>
+            <li>
+              <p><i class="fas fa-boxes"></i>300 Productos</p>
+              <span><i class="fas fa-check"></i></span>
+            </li>
+            <li>
+              <p><i class="fas fa-share-alt"></i> Redes sociales</p>
+              <span><i class="fas fa-check"></i></span>
+            </li>
+            <li>
+              <p><i class="fas fa-paint-brush"></i> Personalizar negocio</p>
+              <span><i class="fas fa-check"></i></span>
+            </li>
+            <li>
+              <p><i class="fas fa-list-alt"></i> Crear categorías</p>
+              <span><i class="fas fa-check"></i></span>
+            </li>
+            <li>
+              <p><i class="fas fa-phone-alt"></i> Pedidos por WhatsApp</p>
+              <span><i class="fas fa-check"></i></span>
+            </li>
+          </ul>
+          <button class="plan-boton boton" id="plan4" data-precio="120000" data-id="4" data-des="Plan Empresario">
+            elegir plan
+          </button>
+        </div> -->
+
+        <div class="plan">
+          <header class="plan-header plan-emprendedor_header">
+            <h3>Plan Emprendedor</h3>
+            <span class="plan-precio">$100.000</span>
+            <p>Precio mensual</p>
+          </header>
+          <ul class="plan-lista">
+            <li>
+              <p><i class="fas fa-building"></i> 2 Negocios</p>
+              <span><i class="fas fa-check"></i></span>
+            </li>
+            <li>
+              <p><i class="fas fa-boxes"></i> 140 Productos</p>
+              <span><i class="fas fa-check"></i></span>
+            </li>
+            <li>
+              <p><i class="fas fa-share-alt"></i> Redes sociales</p>
+              <span><i class="fas fa-check"></i></span>
+            </li>
+            <li>
+              <p><i class="fas fa-paint-brush"></i> Personalizar negocio</p>
+              <span><i class="fas fa-check"></i></span>
+            </li>
+            <li>
+              <p><i class="fas fa-list-alt"></i> Crear categorías</p>
+              <span><i class="fas fa-check"></i></span>
+            </li>
+            <li>
+              <p><i class="fas fa-phone-alt"></i> Pedidos por WhatsApp</p>
+              <span><i class="fas fa-check"></i></span>
+            </li>
+            <li>
+              <p><i class="fas fa-globe"></i> Personalización de subdominio</p>
+              <span><i class="fas fa-check"></i></span>
+            </li>
+          </ul>
+          <button class="plan-boton boton" id="plan3" data-precio="100000" data-id="3" data-des="Plan Emprendedor">
+            elegir plan
+          </button>
+        </div>
+
+        <div class="plan">
+          <header class="plan-header plan-basico_header">
+            <h3>Plan Básico</h3>
+            <span class="plan-precio">$ 50.000</span>
+            <p>Precio mensual</p>
+          </header>
+          <ul class="plan-lista">
+            <li>
+              <p><i class="fas fa-building"></i> 1 Negocios</p>
+              <span><i class="fas fa-exclamation-circle"></i></span>
+            </li>
+            <li>
+              <p><i class="fas fa-boxes"></i> 50 Productos</p>
+              <span><i class="fas fa-exclamation-circle"></i></span>
+            </li>
+            <li>
+              <p><i class="fas fa-share-alt"></i> Redes sociales</p>
+              <span><i class="fas fa-check"></i></span>
+            </li>
+            <li>
+              <p><i class="fas fa-paint-brush"></i> Personalizar negocio</p>
+              <span><i class="fas fa-check"></i></span>
+            </li>
+            <li>
+              <p><i class="fas fa-list-alt"></i> Crear categorías</p>
+              <span><i class="fas fa-check"></i></span>
+            </li>
+            <li>
+              <p><i class="fas fa-phone-alt"></i> Pedidos por WhatsApp</p>
+              <span><i class="fas fa-check"></i></span>
+            </li>
+            <li>
+              <p><i class="fas fa-globe"></i> Personalización de subdominio</p>
+              <span><i class="fas fa-check"></i></span>
+            </li>
+          </ul>
+          <button class="plan-boton boton" id="plan2" data-precio="50000" data-id="2" data-des="Plan Basico">
+            elegir plan
+          </button>
+        </div>
+        
+        <div class="plan">
+          <header class="plan-header plan-prueba_header">
+            <h3>Plan Prueba</h3>
+            <span class="plan-precio">$ 0</span>
+            <!-- <p>Gratis por 1 mes</p> -->
+          </header>
+          <ul class="plan-lista">
+            <li class="iconNoBene">
+              <p><i class="fas fa-share-alt"></i> Redes sociales</p>
+              <span><i class="fas fa-times "></i></span>
+            </li>
+            <li class="iconNoBene">
+              <p><i class="fas fa-globe"></i> Personalización de subdominio</p>
+              <span><i class="fas fa-times"></i></span>
+            </li>
+            <li class="iconNoBene">
+              <p><i class="fas fa-list-alt"></i> Crear categorías</p>
+              <span><i class="fas fa-times "></i></span>
+            </li>
+            <li>
+              <p><i class="fas fa-building"></i> 1 Negocios</p>
+              <span><i class="fas fa-exclamation-circle"></i></span>
+            </li>
+            <li>
+              <p><i class="fas fa-boxes"></i> 10 Productos</p>
+              <span><i class="fas fa-exclamation-circle"></i></span>
+            </li>
+            
+            <li>
+              <p><i class="fas fa-paint-brush"></i> Personalizar negocio</p>
+              <span><i class="fas fa-check"></i></span>
+            </li>
+            
+            <li>
+              <p><i class="fas fa-phone-alt"></i> Pedidos por WhatsApp</p>
+              <span><i class="fas fa-check"></i></span>
+            </li>
+            
+          </ul>
+          <!-- <button class="plan-boton boton" id="plan1" data-precio="0" data-id="1">
+            Elegir plan
+          </button> -->
+        </div>
+      </div>
+    </div>
+        
+    <!-- tarjeta -->
+    <form id="form-checkout" class="form-checkout formulario_pago">
+      <div class="container form-input__icon">
+        <label for="form-checkout__cardNumber" class="form-label__pago labelNone">Número de tarjeta:</label>
+        <i class="fas fa-credit-card icon"></i>
+        <div id="form-checkout__cardNumber" class="form-input__pago"></div>
+      </div>
+      <div class="tarjeta-container_inpust">
+        <div class="container form-input__icon">
+          <label for="form-checkout__expirationDate" class="form-label__pago labelNone">Fecha de expiración:</label>
+          <i class="fas fa-calendar-alt icon"></i>
+          <div id="form-checkout__expirationDate" class="form-input__pago"></div>
+        </div>
+        <div class="container form-input__icon">
+          <label for="form-checkout__securityCode" class="form-label__pago labelNone">Código de seguridad:</label>
+          <i class="fas fa-lock icon"></i>
+          <div id="form-checkout__securityCode" class="form-input__pago"></div>
+        </div>
+      </div>
+      <div class="container form-input__icon">
+        <label for="form-checkout__cardholderName" class="form-label__pago labelNone">Nombre del titular:</label>
+        <i class="fas fa-user icon"></i>
+        <input type="text" id="form-checkout__cardholderName" class="form-input__pago" placeholder="Nombre del titular">
+      </div>
+      <div class="container form-input__icon">
+        <label for="form-checkout__issuer" class="form-label__pago labelNone">Emisor:</label>
+        <i class="fas fa-university icon"></i>
+        <select id="form-checkout__issuer" class="form-input__pago"></select>
+      </div>
+      <div class="container form-input__icon" style="display: none;">
+        <label for="form-checkout__installments" class="form-label__pago">Cuotas:</label>
+        <i class="fas fa-list-ol icon"></i>
+        <select id="form-checkout__installments" class="form-input__pago"></select>
+      </div>
+      <div class="container" style="display:none;">
+        <input type="hidden" id="form-checkout__cardholderEmail" class="form-input__pago">
+      </div>
+      <br>
+      <div class="planSeleccionado">
+        <div class="planSeleccionado__detalles">
+          <span class="planSeleccionado__precio"></span>
+          <p class="planSeleccionado__plan"></p>
+        </div>
+        <button type="button" class="btn-cambiarPlan" id="btn-cambiarPlan"">Cambiar</button>
+      </div>
+      <button type="submit" id="form-checkout__submit" class="form-boton__pago boton">
+        Pagar
+      </button>
+      <progress value="0" class="progress-bar">Cargando...</progress>
+    </form>
+  </section>
+  </main>
+
+  </div>
+  <script src="../../js/panel.js"></script>
+  <script src="../../js/suscribirse.js"></script>
+  <script src="../../js/panelCrud.js"></script>
+  <script src="https://sdk.mercadopago.com/js/v2"></script>
+  <script>
+    //logica para suscribirse  al plan
+    //botones de los planes
+
+
+    //logica de la pregunta de eliminar negocio y cancelar suscripcion
+ //obtengo el boton de cancelar la pregunta para ocultarla y cancelar
+ const btnPreguntaCancelar = document.querySelector(".pregunta_cancelar").addEventListener("click",()=>{ocultarPreguntaEliminacion()})
+ //obtengo el boton de borrar de la pregunta y elimino el negocio
+
+    
+const planesBotons = document.querySelectorAll(".plan-boton");
+planesBotons.forEach((boton) => {
+  boton.addEventListener("click", () => {
+
+    //oculto la seccion de planes
+    const seccionPlanes = document.querySelector(".seccion-planes")
+
+    //obtengo los datos del plan
+    const usuarioCorreo = document.getElementById("usuarioCorreo").value;
+    //const usuarioCorreo = "test_user_1347515688@testuser.com";
+    const planSeleccionado = boton.dataset.id;
+    console.log(planSeleccionado)
+    const planDes = boton.dataset.des
+    const precioPlan = boton.dataset.precio;
+    console.log(boton.textContent)
+
+    const progressBarTarjeta = document.querySelector(".progress-bar")
+    progressBarTarjeta.style.display = "block"
+    
+    if(boton.textContent == "Cancelar suscripción") {
+      const btnPreguntaCanSubs =document.querySelector(".pregunta_cancelarSubs")
+      btnPreguntaCanSubs.style.display = "block"
+      //llamo al boton en panel.js
+      const btnPreguntaBorrar = document.querySelector(".pregunta_aceptar")
+      btnPreguntaBorrar.style.display = "none"
+      
+      // Elimino cualquier listener previo para evitar múltiples ejecuciones
+      btnPreguntaCanSubs.addEventListener("click", ()=>{
+        cancelarSuscripcion(usuarioCorreo);
+      });
+
+      const preguntaBorrarOpcion = document.querySelector(".preguntaBorrarOpcion")
+      preguntaBorrarOpcion.textContent = "¿Seguro que deasea cancelar la suscripcion? se borraran todos sus negocios y productos ademas volvera al plan de prueba"
+      mostrarPreguntaEliminacion()
+
+      ocultarModalSuscribcion()
+      
+      console.log("cancelar")
+
+    }else if(boton.textContent == "Mejorar plan"){
+      //seccionPlanes.style.display = 'none'
+      //mejorarSuscripcion(precioPlan, usuarioCorreo, planSeleccionado,planDes)
+      console.log("mejorar")
+      
+    }else{
+      seccionPlanes.style.display = 'none'
+      suscribirse(precioPlan, usuarioCorreo, planSeleccionado,planDes)
+      console.log("suscribir")
+    }
+
+  });
+});
+
+//funcion para suscribirse
+const suscribirse = async(precioPlan, usuarioCorreo, planSeleccionado,planDes)=>{
+  //obtengo el formulario de pago con tarjeta
+  const formCheckout = document.getElementById("form-checkout")
+  formCheckout.style.display = "flex"
+
+  const precio = parseInt(precioPlan)
+  //logica para mostrar el plan seleccionado
+  const planSeleccionado__plan = document.querySelector(".planSeleccionado__plan").textContent = planDes
+  const planSeleccionado__precio = document.querySelector(".planSeleccionado__precio").textContent = "$" + precio.toLocaleString('es-ES') + " al mes"
+
+  // Configurar el formulario de pago con tarjeta usando el precio obtenido
+  configureCardForm(precioPlan, usuarioCorreo, planSeleccionado);
+}
+
+//funcion para mejorar plan
+const mejorarSuscripcion = (precioPlan, usuarioCorreo, planSeleccionado,planDes)=>{
+  const precio = parseInt(precioPlan)
+    //logica para mostrar el plan seleccionado
+    const planSeleccionado__plan = document.querySelector(".planSeleccionado__plan").textContent = planDes
+    const planSeleccionado__precio = document.querySelector(".planSeleccionado__precio").textContent = "$" + precio.toLocaleString('es-ES') + " al mes"
+}
+
+//funcion para cancelar plan 
+const cancelarSuscripcion = (usuarioCorreo)=>{
+  mostrarProgressBar(".pregunta_cancelarSubs","#progessBar-container_eliminar")
+  fetch("/cancelar-suscripcion", {
+    method: 'DELETE', // Método DELETE para cancelar la suscripción
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      correo:usuarioCorreo
+    }),
+  })
+  .then(response => {
+    if (response.status === 500) {
+      throw new Error(`Error en la cancelación: ${response.statusText}`);
+    }
+    if (response.status != 400 && !response.ok) {
+      mostrarModalMensajes("Error en la cancelacion")
+      throw new Error(`Error en la cancelacion:`);
+    }
+    return response.json();
+  })
+  .then(data => {
+    mostrarModalMensajes(data.mensaje);
+    ocultarProgressBar(".pregunta_cancelarSubs","#progessBar-container_eliminar","inline-block")
+
+    console.log("Suscripción cancelada:", data);
+    setTimeout(() => { location.reload() }, 22000);
+  })
+  .catch(error => {
+    mostrarModalMensajes("No se logró cancelar la suscripción. Intenta de nuevo más tarde.");
+    ocultarProgressBar(".pregunta_aceptar","#progessBar-container_eliminar","inline-block")
+    console.error("Error al cancelar la suscripción:", error);
+  });
+}
+
+//boton de cambiar plan
+const btnCambiarPlan = document.getElementById("btn-cambiarPlan").addEventListener("click",()=>{
+   //oculto la seccion de planes
+   const seccionPlanes = document.querySelector(".seccion-planes").style.display = 'flex'
+
+   //obtengo el formulario de pago con tarjeta
+   const formCheckout = document.getElementById("form-checkout")
+   formCheckout.style.display = "none"
+})
+
+//ajustes de mercado pago api
+const mp = new window.MercadoPago(
+  //progt
+  "APP_USR-68489bf2-548b-4848-9092-52dde2da5298"
+  //pr2
+  //"APP_USR-b2884ac3-5257-4b24-a8d3-f30b04222346"
+);
+
+function configureCardForm(precioPlan, correoUsuario, planSeleccionado) {
+// Obtener la descripción del plan seleccionado
+let descripcionPlan = "";
+switch (planSeleccionado) {
+case 4:
+  descripcionPlan = "Plan Empresario - 3 Negocios, productos ilimitados";
+  break;
+case 3:
+  descripcionPlan = "Plan Emprendedor - 2 Negocios, 120 productos";
+  break;
+case 2:
+  descripcionPlan = "Plan Básico - 1 Negocio, 40 productos";
+  break;
+default:
+  descripcionPlan = "Descripción de la suscripción";
+  break;
+}
+
+// Configurar el formulario de pago con tarjeta
+const cardForm = mp.cardForm({
+amount: precioPlan,
+iframe: true,
+form: {
+  id: "form-checkout",
+  cardNumber: {
+    id: "form-checkout__cardNumber",
+    placeholder: "Número de tarjeta",
+  },
+  expirationDate: {
+    id: "form-checkout__expirationDate",
+    placeholder: "MM/YY",
+  },
+  securityCode: {
+    id: "form-checkout__securityCode",
+    placeholder: "CVV",
+  },
+  cardholderName: {
+    id: "form-checkout__cardholderName",
+    placeholder: "Titular de la tarjeta",
+  },
+  issuer: {
+    id: "form-checkout__issuer",
+    placeholder: "Banco emisor",
+  },
+  installments: {
+    id: "form-checkout__installments",
+    placeholder: "Cuotas",
+  },
+  cardholderEmail: {
+    id: "form-checkout__cardholderEmail",
+    placeholder: "E-mail",
+  },
+},
+callbacks: {
+  onFormMounted: (error) => {
+    if (error) {
+      console.warn("Form Mounted handling error: ", error);
+    } else {
+      console.log("Form mounted");
+    }
+  },
+  onSubmit: async (event) => {
+    event.preventDefault();
+
+    const {
+      paymentMethodId: payment_method_id,
+      issuerId: issuer_id,
+      cardholderEmail: email,
+      amount,
+      token,
+      installments,
+    } = cardForm.getCardFormData();
+    
+    console.log("Card Form Data:", cardForm.getCardFormData());
+    
+    fetch("/suscribirse_bysite", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        token,
+        issuer_id,
+        payment_method_id,
+        transaction_amount: Number(amount),
+        installments: Number(installments),
+        description: descripcionPlan,
+        payer: {
+          email: correoUsuario,  // Use the email from the function argument
+          planSeleccionado: planSeleccionado,
+        },
+      }),
+    })
+    .then(response=>{
+      if (response.status == 500) {
+        throw new Error(`Error en la suscripción: ${response.statusText}`);
+      } 
+      return response.json()
+    }).then(data=>{
+      mostrarModalMensajes(data.mensaje)
+      console.log("Subscription successful:", data);
+      setTimeout(()=>{location.reload()},5000)
+    }).catch(error=>{
+      mostrarModalMensajes("No se logro suscribir intentalo mas tarde")
+      console.error("Error al suscribir al usuario:", error);
+    }) 
+  },
+  onFetching: (resource) => {
+    console.log("Fetching resource: ", resource);
+
+    // Animate progress bar
+    const progressBar = document.querySelector(".progress-bar");
+    progressBar.removeAttribute("value");
+
+    return () => {
+      progressBar.setAttribute("value", "0");
+    };
+  },
+},
+});
+}
+
+
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,640 @@
+
+
+:root{
+    --color-negocio:#000;
+    --color-negocio2:#000;
+    --color-cinco: #333333;
+
+}
+body{
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-cuatro);
+}
+.container {
+    display: grid;
+    grid-template-columns: 70px 1fr;
+    grid-template-areas: "aside main";
+    height: 100vh;
+    background-color: var(--color-cuatro);
+    overflow: hidden;
+    min-height: fit-content;
+}
+
+.aside-container {
+    grid-area: aside;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--color-uno);
+    padding: 1em 0;
+    transition: width 0.3s;
+    height: 100vh; /* Aseguramos que el aside ocupe toda la altura */
+}
+
+.header-logo {
+    width: 50px;
+    margin-bottom: 1em;
+}
+
+.aside-botones_container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2.5em;
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.boton-aside {
+    background: none;
+    padding: 0.5em;
+    font-size: .75em;
+    color: var(--color-cuatro);
+    text-transform: capitalize;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    gap: 4px;
+    transition: background-color 0.3s;
+}
+.boton-aside i {
+    font-size: 2em; 
+}
+
+.boton-aside:hover {
+    background-color: var(--color-hover);
+}
+.resaltarSeccion{
+    background-color: var(--color-hover);
+
+}
+
+
+@media (max-width: 600px) {
+    .container {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto 60px;
+        grid-template-areas: 
+            "main" 
+            "aside";
+        position: relative;
+    }
+
+    .aside-container {
+        flex-direction: row;
+        justify-content:center;
+        align-items: center; /* Asegura que los iconos estén centrados verticalmente */
+        padding: 0;
+        height: 60px;
+        position: fixed;
+        bottom: 0;
+        z-index: 2222222233;
+        width: 100%;
+    }
+
+    .header-logo {
+        display: none;
+    }
+
+    .aside-botones_container {
+        flex-direction: row;
+        gap: 1em;
+        justify-content: center;
+        width: 100%;
+        padding: 0 1em;
+        align-items: center; /* Asegura que los iconos estén centrados verticalmente */
+    }
+
+    .boton-aside {
+        flex: 1;
+        text-align: center; /* Centra los iconos en el botón */
+    }
+    .boton-aside i {
+        font-size: 2em;
+    }
+}
+
+
+/* boton para ver catalogo */
+.verCatalogo {
+    border: 5px solid var(--color-hover);
+    background-color: var(--color-tres);
+    color: var(--color-cuatro);
+    border-radius: 2em;
+    max-width: fit-content;
+    padding: .5em;
+    font-size: 1em;
+}
+
+/* ajustes para los botones para abrir y cerrar el perfil */
+
+.main-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    min-height: fit-content;
+    grid-area: main;
+    overflow: hidden;
+    position: relative;
+}
+/* ajustes para el progresbar */
+.progessBar-container{
+    position: absolute;
+    z-index: 10;
+    height: 100%;
+    width: 100%;
+    background-color: #ffffffc9;
+    border-radius: 0;
+    max-width: none;
+    z-index: 555555555;
+}
+.progessBar{
+    margin-top: 40vh;
+    color: var(--color-dos);
+    border: 4px solid var(--color-dos);
+}
+.progessBar:before,.progessBar:after{
+    border-bottom:  10px solid  var(--color-cuatro);
+}
+
+h1 {
+    font-size: 2em;
+}
+/* ajustes generales para las secciones */
+.main-seccion{
+    background-color: var(--color-cuatro);
+    width: 100%;
+    font-size: calc(16px + 1vw);
+    position: absolute;
+    transform: scale(0);
+    opacity: 0;
+    overflow: auto;
+    height: 100%;
+    min-height: fit-content;
+    transition: transform 0.5s ease, opacity 0.5s ease;
+}
+.mostrarSeccion{
+    position: relative;
+    transform: scale(1);
+    opacity: 1;
+    transition: transform 0.5s ease, opacity 0.5s ease;
+}
+/* Sección de perfil de empresa */
+.seccion_negocio {
+    color: var(--color-uno);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    overflow: hidden;
+    height: auto;
+    padding: .5em 0;
+    background-color: var(--color-cuatro);
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    place-self: flex-start;
+}
+
+/* Ajustes para el icono de editar negocio */
+.iconEdiNegocio, .iconEdiNegocioLogo,.iconDeleteNegocioLogo {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: var(--color-dos);
+    z-index: 2;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+.iconDeleteNegocioLogo{
+    left: 10px;
+    color: red;
+}
+
+.iconEdiNegocio:hover, .iconEdiNegocioLogo:hover {
+    color: var(--color-uno);
+}
+
+/* Estilos generales para el formulario */
+.form-negocio, .fieldset_negocio, .colores_contenedor {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    gap: 1em;
+    width: 100%;
+}
+
+.form-negocio {
+    width: 100%;
+    max-width: 900px;
+    margin: auto;
+    padding:0 1.5em;
+    background-color: var(--color-cuatro);
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    position: relative;
+    overflow: hidden;
+    overflow-y: auto;
+    justify-content: stretch;
+    max-height: 90vh;
+    transition: all 0.3s ease;
+}
+
+.form-negocio:hover {
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2); /* Sombra más pronunciada al pasar el ratón */
+}
+
+@media (max-width: 450px) {
+    .form-negocio {
+        padding: 1em;
+    }
+    .seccion_negocio{
+        overflow: auto;
+    }
+}
+
+/* Estilos adicionales para campos de formulario */
+.fieldset_negocio input, .fieldset_negocio select, .fieldset_negocio textarea {
+    width: 100%;
+    padding: 0.5em;
+    border-radius: var(--border-radius);
+    border: 0.2px solid var(--color-dos);
+    font-size: 1em;
+    transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+
+.fieldset_negocio input:focus, .fieldset_negocio select:focus, .fieldset_negocio textarea:focus {
+    border: 1px solid var(--color-uno);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.fieldset_negocio {
+    width: 100%;
+    padding: 1em;
+    border: 1px solid #ccc;
+    border-radius: var(--border-radius);
+}
+
+.fieldset_negocio legend {
+    text-align: center;
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    color: var(--color-uno);
+    font-weight: 700;
+    opacity: .8;
+}
+
+.fieldset_negocio label {
+    font-size: .9em;
+    opacity: .8;
+    color: var(--color-uno);
+    min-width: fit-content;
+}
+
+/* Estilos específicos para el encabezado de información del negocio */
+.fieldset_infoNegocio {
+    flex-direction: column;
+}
+
+.fieldset_infoNegocio_header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+@media (max-width: 550px) {
+    .fieldset_infoNegocio_header {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .fieldset_negocio {
+        justify-content: flex-start;
+        padding: .5em;
+    }
+}
+
+/* Ajustes para la figura del negocio */
+.figure-negocio {
+    position: relative;
+}
+
+/* Estilos para el logo */
+.negocio-header_logo {
+    object-fit: cover;
+    object-position: center;
+    border-radius: var(--border-radius);
+    width: 10em;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    transition: transform 0.3s ease;
+}
+
+.negocio-header_logo:hover {
+    transform: scale(1.05); /* Efecto zoom al pasar el ratón */
+}
+
+/* Estilos para el input del nombre del negocio */
+#negocioNombreInput {
+    text-align: center;
+    font-size: 1.5em;
+    font-weight: 600;
+    text-transform: capitalize;
+    color: var(--color-cinco);
+    border: none;
+    border-bottom: 2px solid var(--color-dos);
+    outline: none;
+    transition: border-color 0.3s;
+    padding: 0.5em;
+    background-color: var(--color-cuatro);
+    border-radius: var(--border-radius);
+}
+
+#negocioNombreInput:focus {
+    border-bottom-color: var(--color-tres);
+}
+
+/* Estilos para el textarea */
+#negocioDescInput, #negocioDescInputParrafo {
+    text-align: center;
+    width: 100%;
+    max-width: 800px;
+    font-size: 1em;
+    color: var(--color-cinco);
+}
+
+#negocioDescInput {
+    resize: none;
+    padding: 0.5em;
+    border: 1px solid #ccc;
+    border-radius: var(--border-radius);
+    outline: none;
+    transition: border-color 0.3s;
+    background-color: var(--color-cuatro);
+}
+
+#negocioDescInput:focus {
+    border-color: var(--color-dos);
+}
+
+.fieldset_estilos {
+    gap: 0.8em;
+    width: 100%;
+    padding: 1em;
+    background-color: var(--color-cuatro);
+    border-radius: var(--border-radius);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Ajustes generales para los inputs */
+.form-input_negocio,.form-input_catalogo  {
+    background-color: var(--color-cuatro);
+    color: var(--color-cinco);
+    border: 1px solid #ccc;
+    padding: 0.5em 2em 0.5em 1em;
+    border-radius: var(--border-radius);
+    outline: none;
+    transition: border-color 0.3s, box-shadow 0.3s;
+    position: relative;
+}
+
+.form-input_negocio:focus,.form-input_catalogo:focus {
+    border-color: var(--color-dos);
+    box-shadow: 0 0 5px rgba(0, 156, 223, 0.5);
+}
+/* inputs de color */
+.colores_contenedor{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+.color_container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+.color_container div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    gap: 5px;
+}
+.input-negocio_color {
+    padding: 0 !important;
+    max-width: 100px !important;
+    min-width: 70px;
+    width: 100%;
+    height: 50px;
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    border: none !important;
+}
+
+.form-input_hex {
+    width: 80px;
+    max-width: 200px !important;
+}
+
+@media (min-width:835px) {
+    .color_container_1{
+        grid-column: span 2;
+    }
+}
+
+.input-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.input-wrapper i {
+    position: absolute;
+    right: 1em;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--color-dos);
+    pointer-events: none;
+}
+
+/* Contenedor de redes sociales */
+.redes_container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 15px;
+    width: 100%;
+}
+
+.input_redes {
+    width: 90%;
+    padding: 0.5em 2em 0.5em 1em;
+    font-size: 0.8em;
+    border-radius: var(--border-radius);
+    border: 1px solid #ccc;
+    outline: none;
+    background-color: var(--color-cuatro);
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.input_redes:focus {
+    border-color: var(--color-dos);
+    box-shadow: 0 0 5px rgba(0, 156, 223, 0.5);
+}
+
+.informacion-container div {
+    width: 90%;
+}
+
+.informacion-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    width: 100%;
+}
+
+.informacion-container i {
+    font-size: 1.5em;
+    color: var(--color-dos);
+    width: 10%;
+}
+
+.informacion-container img {
+    width: 1.5em;
+    height: 1.5em;
+}
+
+/* Ajustes para el botón de guardar del perfil de negocio */
+.form-boton_negocio,.form-boton_catalogo {
+    width: 100%;
+    max-width: fit-content;
+    padding: 0.5em 1em;
+    border-radius: 2em;
+    border: none;
+    outline: none;
+    background-color: var(--color-dos);
+    color: var(--color-cuatro);
+    font-size: 1em;
+    transition: all 0.5s ease;
+    display: none;
+    cursor: pointer;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    margin: 20px;
+    margin-bottom: 55px;
+}
+
+.form-boton_negocio:hover,.form-boton_catalogo:hover {
+    background-color: var(--color-hover);
+    transition: all 0.5s ease;
+    cursor: pointer;
+}
+
+.mostrarBtnGuardarNegocio {
+    display: inline-block;
+}
+
+/* estilos para el contenedor del subdominio */
+.subdominio-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+
+.contendor_subdominio {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+    width: 100%;
+    font-size: calc(14px + 1vw);
+    max-width: 500px;
+}
+
+.inputSubdominio {
+    padding: 0 0.2em;
+    width: 70%;
+    min-width: 70px;
+}
+
+.subdominioR:focus {
+    border: 1px solid red !important;
+    outline: none;
+}
+
+.subdominioG:focus {
+    border: 1px solid green !important;
+    outline: none;
+}
+
+.btnGuardarSubdominio, .btnGuardarSubdominio:hover {
+    font-size: .8em;
+    background-color: inherit;
+    color: #000;
+    text-decoration: underline;
+    display: none;
+}
+
+.btnGuardarSubdominio:hover {
+    color: var(--color-dos);
+}
+
+.copy-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2em;
+    padding: 0 0.2em;
+}
+
+.copy-button i {
+    color: #000;
+}
+
+.copy-button:hover i {
+    color: var(--color-dos);
+}
+
+
+/* ajustes para la seccion de catalogo */
+.catalogo_portada{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    width: 100%;
+}
+
+/* ajustes para la foto de portada */
+.catalogo-portada_Foto{
+    width: 100%;
+    max-width: 400px;
+    max-height: 300px;
+    height: auto;
+    object-fit: contain;
+    object-position: center;
+
+}
+
+/* .botonTienda{
+
+} */

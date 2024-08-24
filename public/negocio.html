@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="markeplace, comercio electronico, paginas web">
+    <meta name="description"
+        content="Somos bysite pro una plataforma de comercio electornico en el que podras crear y administrar tu negocio de manera efectiva y facil">
+    <meta name="author" content="Victor Manuel Cordoba">
+    <meta name="copyright" content="Bysite pro">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <!-- ajustes de estilos -->
+    <link rel="stylesheet" href="../../css/estilos.css">
+    <link rel="stylesheet" href="../../css/negocio/formularios.css">
+    <link rel="stylesheet" href="../../css/negocio/negocio.css">
+    <link rel="stylesheet" href="../../css/negocio/panel.css">
+    <link rel="stylesheet" href="../../css/negocio/productos.css">
+    <link rel="stylesheet" href="../../css/negocio/categorias.css">
+    <link rel="icon" href="../../img/icon.jpeg">
+    <!-- biblio para iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Open+Sans:wght@400;700&family=Lato:wght@400;700&family=Montserrat:wght@400;700&family=Poppins:wght@400;700&family=Raleway:wght@400;700&family=Nunito:wght@400;700&family=Oswald:wght@400;700&family=Ubuntu:wght@400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <title>Administrar negocio</title>
+</head>
+
+<body>
+    <div class="container">
+        <div style="display: none;">
+            <input type="hidden" id="id_unico_dueno" value="%=id_unico_dueno%>">
+            <input type="hidden" id="negocio_id" value="%=negocio_id%>">
+            <input type="hidden" id="negocioNombre" value="%=negocioNombre%>">
+            <input type="hidden" id="suscripcion" value="%=suscripcion%>">
+        </div>
+        <nav class="menu_opciones">
+            <i class="fas fa-times" id="menu-opciones_btnCerrar"></i>
+            <div class="seccion_opciones">
+                <h4 class="seccion-opciones_titulo">Gestión de negocio</h4>
+                <ul class="seccion-opciones_lista">
+                    <li data-seccion="seccion-cambiarNegocio" id="btn_seccion-cambiarNegocio" class="boton-aside_seccion">
+                        <i class="fas fa-exchange-alt" data-seccion="seccion-cambiarNegocio"></i>
+                        Cambiar de negocio
+                    </li>
+                    <li class="boton-aside_seccion" data-seccion="seccion-negocio">
+                        <i class="fas fa-briefcase" data-seccion="seccion-negocio"></i>
+                        Editar negocio
+                    </li>
+                    <li class="boton-aside_seccion" data-seccion="seccion-catalogo">
+                        <i class="fas fa-store" data-seccion="seccion-catalogo"></i>
+                        Catalogo
+                    </li>
+                    <li data-seccion="seccion-estadisticas" id="btn_seccion-estadisticas" class="boton-aside_seccion">
+                        <i class="fas fa-chart-bar" data-seccion="seccion-estadisticas"></i>
+                        Estadísticas
+                    </li>
+                    <li data-seccion="seccion-panel" id="btn_panelAdmins" class="boton-aside_seccion">
+                        <i class="fas fa-user-cog" data-seccion="seccion-panel"></i>
+                        Panel Admins
+                    </li>
+                </ul>
+            </div>
+            <div class="seccion_opciones">
+                <h4 class="seccion-opciones_titulo">Productos</h4>
+                <ul class="seccion-opciones_lista">
+                    <li class="boton-aside_seccion" data-seccion="seccion-productos">
+                        <i class="fas fa-box" data-seccion="seccion-productos"></i>
+                        Inventario
+                    </li>
+                    <!-- <li>Pedidos</li> -->
+                </ul>
+            </div>
+            <div class="seccion_opciones">
+                <h4 class="seccion-opciones_titulo">Soporte y ayuda</h4>
+                <ul class="seccion-opciones_lista">
+                    <li class="">
+                        <a href="https://youtube.com/@bysite_pro" target="_blank"  >
+                            <i class="fas fa-chalkboard-teacher"></i>
+                            Tutoriales
+                        </a>
+                    </li>
+                    <li class="">
+                        <a href="https://wa.me/+573103015179" target="_blank"  >
+                            <i class="fab fa-whatsapp" style="font-size: 27px;"></i>
+                            Contáctanos
+                        </a>
+                    </li>
+                    <li class="">
+                        <i class="fas fa-bug"></i>
+                        Reportar problema
+                    </li>
+                </ul>
+            </div>
+            <button class="bo-CerraSe boton">
+                <i class="fas fa-sign-out-alt"></i>
+                Cerrar sesión
+            </button>
+        </nav>
+        
+        <aside class="aside-container">
+            <nav class="aside-botones_container">
+            <img src="../../img/logoSinFondo.png" alt="logo de bysite pro" class="header-logo">
+
+                <button class="boton-aside boton boton-aside_seccion" data-seccion="seccion-catalogo" id="btn_seccion-negocio" id="tienda">
+                    <i class="fas fa-store" data-seccion="seccion-catalogo"></i>
+                    catalogo
+                </button>
+                <button class="boton-aside boton-aside_seccion boton resaltarSeccion" data-seccion="seccion-productos" id="btn_seccion-productos">
+                    <i class="fas fa-box" data-seccion="seccion-productos"></i>
+                    productos
+                </button>
+                <button class="boton-aside boton-aside_seccion boton" data-seccion="seccion-negocio" id="btn_seccion-negocio">
+                    <i class="fas fa-briefcase" data-seccion="seccion-negocio"></i>
+                    negocio
+                </button>
+                <button class="boton-aside boton" id="btnAsideMenu" >
+                    <i class="fas fa-bars botones-header" ></i>
+                    Menu
+                </button>
+            </nav>
+        </aside>
+
+
+        <main class="main-container">
+            <!-- progres bar general -->
+            <div class="progessBar-container">
+                <div class="progessBar" id="progessBar"></div>
+            </div>
+            <!-- imprimir mensajes en ventana modal -->
+            <div class="mensajes-modal">
+                <div class="mensaje-container">
+                    <i class="fas fa-times  boton_funcional" id="btn_mensajeModalCerrar"></i>
+                    <div>
+                        <p class="imprimirMen imprimirMenModal"></p>
+                        <button class="boton btnMenModal" id="btnMenModal"><a href="../">Suscribete</a></button>
+                    </div>
+              </div>
+            </div>
+            
+            <!-- seccion del panel -->
+            <section class="seccion_estadisticas main-seccion" id="seccion-estadisticas">
+                <h2 class="main-seccion_titulo">Estadisticas de <span id="negocioNombre_estadisticas"></span></h2>
+                <div class="estadisticas-container">
+                    <div class="estadisticas_item">
+                        <h2>Productos</h2>
+                        <span id="imprimir-can_productos"></span>
+                    </div>
+                    <div class="estadisticas_item">
+                        <h2>categorías</h2>
+                        <span id="imprimir-categorías">7</span>
+                    </div>
+                    <!-- <div class="estadisticas_item">
+                        <h2>Cientes</h2>
+                        <span id="imprimir-cientes">30</span>
+                    </div> -->
+                    <!-- <div class="estadisticas_item">
+                        <h2>pedidos</h2>
+                        <span id="imprimir-Pedidos">3 pendientes</span>
+                    </div>
+                    <div class="estadisticas_item">
+                        <h2>Ventas</h2>
+                        <span id="imprimir-ventas">30/ $10.000 de ganancias</span>
+                    </div> -->
+                    <div class="estadisticas_item">
+                        <h2>Suscripcion</h2>
+                        <span id="imprimir-Suscripcion">Prueba</span>
+
+                    </div>
+                </div>
+            </section>
+            <section class="main-seccion seccion_cambiarNegocio" id="seccion-cambiarNegocio">
+                <h2 class="main-seccion_titulo">Administrar Otro Negocio</h2>
+                <div class="negocios-container ">
+                    <p class="seccion_cambiarNegocio-mensaje">No tienes mas negocios disponibles</p>
+
+                </div>
+            </section>
+            <!-- seccion catalogo -->
+             <section class="main-seccion seccion_catalogo seccion_negocio" id="seccion-catalogo">
+                <button id="tienda" class="boton botonTienda">Ver tienda</button>
+                <form enctype="multipart/form-data" class="form-catalogo form-negocio" id="formCatalogo">
+                    <fieldset class="fieldset_negocio">
+                        <div class="subdominio-container">
+                            <label for="negocioDominioInput" class="form-label">Link de la tienda</label>
+                            <p class="contendor_subdominio">
+                                <input type="text" id="negocioDominioInput" class="inputSubdominio input_redes">.bysite.pro
+                                <button id="copyButton" class="copy-button">
+                                    <i class="fa fa-copy"></i>
+                                </button>
+                            </p>
+                            <button class="boton btnGuardarSubdominio" id="btnGuardarSubdominio">Guardar</button>
+                        </div>
+                    </fieldset>
+                    <fieldset class="fieldset_negocio">
+                        <legend>Cover seccion</legend>
+                        <div>
+                            <label for="negocioTituloInput">Titulo llamativo</label>
+                            <input type="text" name="negocioTituloInput" id="negocioTituloInput"
+                                class="form-input_catalogo form-input" placeholder="Titulo llamativo">
+                        </div>
+                        <div class="catalogo_portada">
+                            <p>Foto de portada</p>
+                            <figure class="figure-negocio">
+                                <i class="fas fa-edit iconEdiNegocioLogo"></i>
+                                <i class="fas fa-trash-alt iconDeleteNegocioLogo" id="btnBorrarfotoCover"></i> <!-- Icono de eliminar -->
+                                <img alt="Foto de portada" class="catalogo-portada_Foto" id="catalogo_portadaFoto">
+                            </figure>
+                        </div>
+                    </fieldset>
+                    <fieldset class="fieldset_negocio fieldset_estilos">
+                        <legend>Estilos</legend>
+                        <div class="colores_contenedor">
+                            <div class="color_container color_container_1">
+                                <div>
+                                    <label for="colorFondoInput" class="form-label">Color de fondo</label>
+                                    <input type="color" name="colorFondoInput" id="colorFondoInput" class="form-input_catalogo input-negocio_color">
+                                </div>
+                                <input type="text" id="hexColorFondoInput" class="form-input_hex form-input_catalogo" maxlength="7">
+                            </div>
+                            <div class="color_container">
+                                <div>
+                                    <label for="colorUnoInput" class="form-label">Color 1</label>
+                                    <input type="color" name="colorUnoInput" id="colorUnoInput" class="form-input_catalogo input-negocio_color">
+                                </div>
+                                <input type="text" id="hexColorUnoInput" class="form-input_hex form-input_catalogo" maxlength="7">
+                            </div>
+                            <div class="color_container color_container_3">
+                                <div>
+                                    <label for="colorDosInput" class="form-label">Color 2</label>
+                                    <input type="color" name="colorDosInput" id="colorDosInput" class="form-input_catalogo input-negocio_color">
+                                </div>
+                                <input type="text" id="hexColorDosInput" class="form-input_hex form-input_catalogo" maxlength="7">
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <label for="negocioFuenteSelect" class="form-label">Fuente de texto</label>
+                            <div class="input-wrapper">
+                                <select name="negocioFuenteSelect" id="negocioFuenteSelect"
+                                    class="form-input form-input_catalogo">
+                                </select>
+                                <i class="fas fa-font"></i>
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
+                <button class="form-boton_catalogo">Guardar</button>
+             </section>
+            <!-- seccion para el perfil de empresa -->
+            <section class="main-seccion seccion_negocio" id="seccion-negocio">
+                <form enctype="multipart/form-data" class="form-negocio" id="formNegocio">
+                    <!-- icono de editar el negocio -->
+                    <fieldset class="fieldset_negocio fieldset_infoNegocio">
+                        <div class="fieldset_infoNegocio_header">
+                            <figure class="figure-negocio">
+                                <i class="fas fa-edit iconEdiNegocioLogo"></i>
+                                <img alt="Logo del negocio" class="negocio-header_logo" id="negocio-header_logo">
+                            </figure>
+                            <input type="text" name="negocioNombreInput" id="negocioNombreInput"
+                                class="form-input_negocio form-input" placeholder="Nombre del Negocio">
+                        </div>
+                        <textarea name="negocioDescInput" id="negocioDescInput" class="form-input_negocio form-input"
+                            placeholder="Descripción"></textarea>
+                    </fieldset>
+                    
+                    <fieldset class="fieldset_negocio">
+                        <legend>Redes sociales</legend>
+                        <div class="redes_container">
+                            <div class="informacion-container">
+                                <i class="fab fa-whatsapp"></i>
+                                <div>
+                                    <label for="negocioWhatsAppInput" class="form-label">Numero de WhatsApp</label>
+                                    <input type="tel" name="negocioWhatsAppInput" id="negocioWhatsAppInput"
+                                    class="form-input_negocio" placeholder="Numero de WhatsApp">
+                                </div>
+                            </div>
+                            <div class="informacion-container">
+                                <i class="fab fa-instagram"></i>
+                                <input type="text" name="negocioInstagramInput" id="negocioInstagramInput"
+                                    class="form-input_negocio" placeholder="Link Instagram">
+                            </div>
+                            <div class="informacion-container">
+                                <i class="fab fa-facebook-f"></i>
+                                <input type="text" name="negocioFacebookInput" id="negocioFacebookInput"
+                                    class="form-input_negocio input_redes" placeholder="Link Facebook">
+                            </div>
+                            <div class="informacion-container">
+                                <i class="fab fa-tiktok"></i>
+                                <input type="text" name="negocioTiktokInput" id="negocioTiktokInput"
+                                    class="form-input_negocio  input_redes" placeholder="Link Tiktok">
+                            </div>
+                            <div class="informacion-container">
+                                <i class="fab fa-youtube"></i>
+                                <input type="text" name="negocioYoutubeInput" id="negocioYoutubeInput"
+                                    class="form-input_negocio  input_redes" placeholder="Link Youtube">
+                            </div>
+                            <div class="informacion-container">
+                                <i class="fas fa-envelope"></i>
+                                <input type="email" name="negocioCorreoInput" id="negocioCorreoInput"
+                                    class="form-input_negocio  input_redes" placeholder="Email">
+                            </div>
+                        </div>
+                        
+                    </fieldset>
+                </form>
+
+                <button class="form-boton_negocio">Guardar</button>
+            </section>
+
+            <!-- seccion para el catalogo -->
+            <section class="main-seccion seccion_inventario" id="seccion-productos">
+                <!-- contenedor que pregunta si se desean eliminar el producto  -->
+                <div class="main-pregunta_container">
+                    <p> Los cambios no se podran desacer<br>¿Seguro que desea elimiar <span id="contenedorTextoDelete">el negocio?</span></p>
+                    <div class="pregunta-botones_container">
+                        <button class="boton-pregunta pregunta_cancelar">Cancelar</button>
+                        <button class="boton-pregunta pregunta_aceptar">Eliminar</button>
+                    </div>
+                </div>
+                <div class="inventario-container">
+                    <header class="inventario-header">
+                        <div class="inventario-header__perfil">
+                            <h1 class="inventario-perfil__nombre"></h1>
+                            <img src="" alt="" class="inventario-perfil__logo">
+                        </div>
+                        <div class="buscador_container">
+                            <div class="input-group">
+                                <input type="search" id="buscador" class="inventario-header__buscador" placeholder="Buscar...">
+                                <button id="btnBuscar" class="boton"><i class="fas fa-search">Buscar</i></button>
+                            </div>
+                            <div id="resultadosContainer" class="resultados-container">
+                                <div class="progessBar-container progessBar_buscador">
+                                    <div class="progessBar" id="progessBar-buscador"></div>
+                                </div>
+                                <div class="header_buscadorContainer">
+                                    <h2>Resultados</h2>
+                                    <i class="fas fa-times formulario-boton_cerrar" id="btn_cerrarBuscador"></i>
+                                </div>
+                                <div id="resultado_buscador" class="resultado_buscador">
+                                    <p class="imprimirBuscadorMensaje"></p>
+                                </div>
+                            </div>
+                        </div>
+                    </header>
+                
+                <main class="inventario-main">
+                    <header class="inventario-main__cabecera">
+                        <div class="inventario-cabecera__Agregar">
+                            <button class="boton inventario-cabecera__boton" id="btnAgregarInventario">Agregar</button>
+                            <div class="inventario-dropdown" id="inventarioDropdown">
+                                <button class="inventario-header__btnAgregar inventario-cabecera__items">
+                                    <i class="fas fa-plus"></i>Nuevo Producto
+                                </button>
+                                <button class="inventario-cabecera__items inventario-header__btnAgregarCategoria" id="btnAgregarCategoria">
+                                    <i class="fas fa-plus"></i>Nueva Categoría
+                                </button>
+                            </div>
+                        </div>
+                        <div class="inventario-header__Categorias">
+                            <button class="boton boton_Categorias inventario-cabecera__boton" id="btnOpenCategorias">Categorias</button>
+                            <div class="categorias-container" id="listaCategorias">
+                                <span>Categorias</span>
+                                <ul id="selectCategorias"></ul>
+                            </div>
+                        </div>
+                    </header>
+                    
+                    
+                    <section class="inventario-container__categorias">
+                        <!-- contendor de resultado de las categorias -->
+                    </section>
+                </main>
+            </div>
+            </section>
+    </div>
+    <section>
+
+        <div class="seccion-formulario" id="seccionFormularioCategorias">
+            <div class="formulario-btnControler btns_containerArticulos seccionFormCategora_2">
+              <!-- icono -->
+              <i class="fas fa-times formulario-boton_cerrar" id="btn_categoriaCerrar"></i>
+              <button class="boton-categoria boton" id="btn_categoriaGuardar">Guardar</button>
+            </div>
+            <form class="formulario_container" id="formulario_categorias">
+              <fieldset class="formulario-container_items seccionFormCategora_1">
+                <legend class="form_titulo" id="form_tituloCategoria">Crear Categoría</legend>
+                <input type="text" id="categoriaInput" name="categoriaInput" class="form-input categoria_input input" placeholder="Nombre de la categoria">
+              </fieldset>
+              <fieldset class="formulario-container_items seccionFormCategora_2" id="articulosForCategoriaContainer">
+                <legend class="form_titulo" id="tituloFormCategoria">Agregar Productos</legend>
+                <div id="articulosForCategoria"></div>
+              </fieldset>
+            </form>
+            <div class="btns_containerCategorias formulario-btnControler seccionFormCategora_1">
+              <button class="boton-categoria boton" id="btn_categoriaCancelar">Cancelar</button>
+              <button class="boton-categoria boton" id="btn_categoriaSiguiente">Siguiente</button>
+              <button class="boton-categoria boton" id="btn_categoriaRenombrar">Renombrar</button>
+
+            </div>
+        </div>
+        
+
+        <!-- formulario para actualizar las fotos de los productos -->
+        <div class="seccion-formulario" id="seccionFormularioArchivo">
+            <div class="formulario-btnControler">
+                <!-- icono -->
+                <i class="fas fa-times formulario-boton_cerrar" id="formularioBtnCerrar_Archivo"></i>
+                <button class="formulario-boton_guardar formulario-btn_archivo" id="formBtnGuardar_Archivo">Guardar</button>
+            </div>
+            <form enctype="multipart/form-data" class="formulario_container" id="formContainer_archivo">
+
+                <fieldset class="formulario-container_items">
+                    <legend class="form_titulo">Actualizar Imagen</legend>
+
+                    <div class="form-archivo_container">
+                        <label for="actualizarArchivo_input" class="archivo_label" id="actualizarLabel_label">
+                            <img src="../../img/close.png" alt="">Añadir imagen
+                        </label>
+
+                        <input type="file" accept="image/*" name="actualizarArchivo_input" id="actualizarArchivo_input"
+                            class="archivo_input form-input input">
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+
+        <!-- formulario para actualizar los detalles del producto -->
+        <div class="seccion-formulario" id="seccionFormularioInfo">
+            <div class="formulario-btnControler">
+                <!-- icono -->
+                <i class="fas fa-times formulario-boton_cerrar" id="formularioBtnCerrar_Info"></i>
+                <button class="formulario-boton_guardar formulario-btn_info" id="formBtnGuardar_Info">Guardar</button>
+            </div>
+            <form class="formulario_container" id="formContainer_info" enctype="multipart/form-data">
+
+                <fieldset class="formulario-container_items">
+                    <legend class="form_titulo">Actualizar Producto</legend>
+                    <figure class="figure-producto">
+                        <img alt="" class="producto-header_logo">
+                    </figure>
+                    <div>
+                        <input type="text" placeholder="Nombre del producto" name="productoNombre"
+                            id="productoNombreActualizar" class="form-input input-detalles input" required>
+                            <!-- <i class="fas fa-edit iconEdiNegoci"></i> -->
+                    </div>
+                    <div>
+                        <input type="number" placeholder="Precio del producto(recomendado)" name="productoPrecio"
+                            id="productoPrecioActualizar" class="form-input input-detalles input">
+                            <!-- <i class="fas fa-edit iconEdiNegoci"></i> -->
+                    </div>
+                    <div>
+                        <textarea name="productoDesc" id="productoDescActualizar" class="form-input input-detalles form-textarea"placeholder="Descripcion del producto(Opcional)" ></textarea>
+                            <!-- <i class="fas fa-edit iconEdiNegoci"></i> -->
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+
+    <div class="seccion-formulario" id="seccionFormularioAgregar">
+        <div class="formulario-btnControler">
+            <!-- icono -->
+            <i class="fas fa-times formulario-boton_cerrar" id="formularioBtnCerrar_Agregar"></i>
+            <button class="catalogo-form_boton formulario-boton_guardar formulario-btn_agregar"
+            id="formBtnGuardar_Agregar">Guardar</button>
+
+        </div>
+        <form class="formulario_container" id="formContainer_agregar" enctype="multipart/form-data">
+            <fieldset class="formulario-container_items">
+                <legend class="form_titulo">Añadir Producto</legend>
+
+                <div class="form-archivo_container">
+                    <label for="productoFoto"
+                        class="archivo_label" id="labelArchivoAgregar">Añadir imagen</label>
+                    <input type="file" accept="image/*" name="productoFoto" id="productoFoto"
+                        class="archivo_input form-input input">
+                    <div id="mostrarImagen_agregar"></div>
+                </div>
+                <div>
+                    <input type="text" placeholder="Nombre del producto" name="productoNombre" id="productoNombre"
+                        class="form-input input" required>
+                </div>
+                <div>
+                    <input type="number" placeholder="Precio del producto(recomendado)" name="productoPrecio"
+                        id="productoPrecio" class="form-input input">
+                </div>
+                <div>
+                    <textarea name="productoDesc" id="productoDesc" class="form-input input form-textarea "placeholder="Descripcion del producto(Opcional)" ></textarea>
+                </div>
+                <!-- <div>
+                    <input type="text" placeholder="categoria del producto(Opcional)" name="productoCategoria"
+                        id="productoCategoria" class="form-input input">
+                </div> -->
+            </fieldset>
+
+        </form>
+    </div>
+    </section>
+    </main>
+    </div>
+
+    <script src="../../js/negocio.js"></script>
+    <script src="../../js/perfilNegocio.js"></script>
+    <script src="../../js/catalogo.js"></script>
+    <script src="../../js/impriProductos.js"></script>
+    <script src="../../js/productos.js"></script>
+    <script src="../../js/categorias.js"></script>
+</body>
+
+</html>

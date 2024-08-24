@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-N0EYWJXFF1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-N0EYWJXFF1');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="markeplace, comercio electronico, paginas web">
+    <meta name="description" content="Somos Bysite pro, una plataforma  donde podrás crear y personalizar tu catálogo web para administrar tu negocio de manera fácil y efectiva">
+    <meta name="author" content="Victor Manuel Cordoba">
+    <meta name="copyright" content="Bysite pro">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <!-- ajustes de estilos -->
+    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="css/cabecera.css">
+    <link rel="icon" href="img/icon.jpeg">
+<!-- biblio para iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
+
+    <title>Iniciar Sesion Bysite pro </title>
+</head>
+<body>
+    <div class="container">
+        <main class="main-container">
+            <div class="formulario">
+            <img src="img/logoSinFondo.png" alt="logo de bysite pro" class="header-logo logo">
+
+                <form action="" class="form-container" id="formContainer" enctype="multipart/form-data">
+                    <fieldset class="formulario-container_items">
+                        <legend class="form_titulo" style="font-size: 1em; display: none;">Iniciar Sesión</legend>
+                        <div>
+                            <label for="userEmail" class="form-label">Correo electrónico:</label>
+                            <input type="email" placeholder="Ingrese su correo electrónico" name="userEmail" id="userEmail" class="form-input" required>
+                        </div>
+                        <div>
+                            <label for="userContraseña" class="form-label">Contraseña:</label>
+                            <input type="password" placeholder="Ingrese su contraseña" name="userContraseña" id="userContraseña" class="form-input" required>
+                        </div>
+                    </fieldset>
+                </form>
+
+                <!-- formulario de olvido contraseña -->
+                <form class="form-container" id="formContainerOlvContra">
+                    <label for="inputOlvContra" class="form-label" id="formLabelOlvContra">Uy... ¿se te olvidó la contraseña? <span>Escribe el correo electrónico de tu cuenta. Te enviaremos un enlace para cambiar la contraseña.</span></label>
+                    <input type="email" required placeholder="correo electronico" class="form-input" id="inputOlvContra">
+                    <button id="btnEnviarCorreo" class="boton">Verificar</button>
+                </form>
+                <p id="imprimirMen" class="imprimirMen"></p>
+                <div style="display: flex; gap: 5px; align-items: center;justify-content: center; width: 100%;flex-wrap: wrap;">
+                    <!-- progres bar -->
+                    <div class="progessBar-container">
+                        <div class="progessBar" id="progessBar"></div>
+                    </div>
+                    <button class="boton_enviar boton">Iniciar sesion</button>
+                    <button  id="btn-olvContra">¿Olvidaste tu contraseña?</button>
+                </div>
+            </div>
+            <p class="crear-cuenta">¿Aun no tienes cuenta? <a href="registrar.html" class="bo-crear_a">CREAR CUENTA</a></p>
+                
+        </main>
+    </div>
+    <script src="login.js"></script>
+</body>
+</html>

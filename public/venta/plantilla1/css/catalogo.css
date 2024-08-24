@@ -1,0 +1,379 @@
+
+
+/* Estilos generales para el header de las categorías */
+.main-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    z-index: 10;
+    position: sticky;
+    top: 0;
+    background-color: var(--color-fondo);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 1em;
+    padding: .5em .2em;
+}
+
+/* Ajustes para el buscador */
+.buscadorContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 0.5em;
+    gap: 0.5em;
+    position: absolute;
+    top: 0;
+    opacity: 0;
+    transform: translateY(-200%);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.mostrarBuscador {
+    position: relative;
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.buscador-input {
+    width: 100%;
+    max-width: 15em;
+    font-size: 1em;
+    padding: 0.5em;
+    border-radius: var(--border-radius);
+    outline: none;
+    border: 1px solid transparent;
+    box-shadow: var(--box-shadow);
+    transition: border-color 0.3s ease-in;
+}
+
+.buscador-input:focus {
+    border-color: var(--color-uno);
+    padding: 0.5em 1em;
+}
+
+/* Estilos para la navegación principal */
+.main-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: .5em;
+    z-index: 500;
+    position: sticky;
+    top: 0;
+    background-color: var(--color-fondo);
+    color: var(--color-texto-fondo);
+    font-size:calc(12px + 1vw);
+    padding: 0.5em;
+    width: 100%;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 1em;
+    box-shadow: 0 2px 8px var(--color-sombra);
+}
+
+.main-nav:hover {
+    box-shadow: 0 2px 12px var(--color-sombra);
+}
+
+/* Botón funcional (abrir menú, etc.) */
+.botonFuncional {
+    cursor: pointer;
+    background: none;
+    border: none;
+    font-size: 1.4em;
+    color: var(--color-uno);
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.botonFuncional:hover {
+    color: var(--color-dos);
+    transform: scale(1.1);
+}
+
+/* Estilos para la navegación de categorías */
+.nav-categorias {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    width: 100%;
+    max-width: 1200px;
+    overflow-x: auto;
+    padding: .3em;
+    scroll-behavior: smooth;
+}
+
+.nav-categorias::-webkit-scrollbar {
+    height: 6px;
+}
+
+.nav-categorias::-webkit-scrollbar-thumb {
+    background-color: var(--color-uno);
+    border-radius: 4px;
+}
+
+.main-header_boton {
+    border: none;
+    font-size: 1em;
+    padding: 0.5em 1em;
+    border-radius: 1em;
+    background-color: var(--color-fondo);
+    color: var(--color-uno);
+    cursor: pointer;
+    text-transform: capitalize;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.main-header_boton:hover {
+    background-color: var(--color-dos);
+    color: var(--color-texto-dos);
+    transform: scale(1.05);
+}
+
+.resaltarCategoria {
+    background-color: var(--color-uno);
+    color: var(--color-texto-uno);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos para el menú lateral de categorías */
+.main-nav_lateral {
+    position: fixed;
+    background-color: var(--color-fondo);
+    z-index: 110;
+    top: 0;
+    left: 0;
+    transform: translateX(-100%);
+    opacity: 0;
+    box-shadow: 10px 0 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.4s ease, opacity 0.4s ease;
+    padding: 2em 1.5em;
+    width: 75%;
+    max-width: 300px;
+    height: 100vh;
+    overflow-y: auto;
+    border-radius: 0 10px 10px 0;
+}
+
+.mostraMain-nav_lateral {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+.nav-categorias_lateral {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 1.5em;
+    padding: 2em 0;
+    color: var(--color-texto-fondo);
+}
+
+.nav-categorias_lateral a {
+    text-decoration: none;
+    color: var(--color-texto-fondo);
+    font-size: 1em;
+    padding: 0.5em 1em;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.nav-categorias_lateral a:hover {
+    background-color: var(--color-dos);
+    color: var(--color-texto-dos);
+}
+
+.main-header_boton_lateral {
+    border: none;
+    font-size: 1.1em;
+    padding: 0.1em .8em;
+    border-radius: 1em;
+    background-color: var(--color-uno);
+    color: var(--color-texto-uno);
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.main-header_boton_lateral:hover {
+    background-color: var(--color-dos);
+    color: var(--color-texto-dos);
+    transform: scale(1.05);
+}
+
+#botonCerrarNavLateral {
+    color: var(--color-texto-fondo);
+    font-size: 2em;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+#botonCerrarNavLateral:hover {
+    color: var(--color-dos);
+}
+
+/* Ajustes generales para la sección de categorías */
+.main-categorias {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    gap: 1em;
+    padding:.5em;
+}
+
+/* Ajustes generales para el contenedor de categoría */
+.categoria-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    padding: .7em;
+    gap: 0.5em;
+    background-color: var(--color-fondo);
+    color: var(--color-texto-fondo);
+    border-radius: 1em;
+    box-shadow: 0 2px 10px var(--color-sombra);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.categoria-container:hover {
+    box-shadow: 0 4px 20px var(--color-sombra);
+    transform: translateY(-5px);
+}
+
+/* Título de la categoría */
+.categoria-nombre {
+    font-size: 1.2em;
+    padding-bottom: .5em;
+    font-weight: 700;
+    text-transform: capitalize;
+    color: var(--color-uno);
+}
+
+/* Ajustes para el contenedor de productos */
+.catagoria-productos_container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(370px, 1fr));
+    gap: 1em;
+    width: 100%;
+}
+
+/* Adaptaciones de Grid para diferentes tamaños de pantalla */
+@media (max-width: 1063px) {
+    .catagoria-productos_container {
+        grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    }
+}
+
+@media (max-width: 850px) {
+    .catagoria-productos_container {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    }
+}
+
+@media (max-width: 450px) {
+    .catagoria-productos_container {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+}
+
+/* Ajustes generales para la carta de producto */
+.producto-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: .5em;
+    background-color: var(--color-fondo);
+    border-radius: 1em;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 2px 10px var(--color-sombra);
+    font-size: calc(10px + 1vw);
+    gap: 5px;
+}
+
+.producto-container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 20px var(--color-sombra);
+}
+
+/* Clase para el botón de añadir al carrito */
+.boAñaCarrito {
+    cursor: pointer;
+    color: var(--color-dos);
+    font-size: 1.5em;
+    transition: transform var(--transition-time);
+}
+
+.boAñaCarrito:hover {
+    transform: scale(1.2);
+}
+
+/* Foto de producto */
+.producto_foto {
+    width: 7.5em;
+    height: 7.5em;
+    object-fit: cover;
+    object-position: center;
+    aspect-ratio: 1/1;
+    border-radius: 1.2em 0 0 1.2em;
+}
+
+/* Detalles del producto */
+.producto-container_detalles {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center; 
+    width: 100%;
+    gap: 0.5em;
+    font-size: 1em;
+    padding: 0.3em;
+    color: var(--color-dos); 
+}
+.producto_nombre {
+    font-weight: 600;
+    text-transform: capitalize;
+    font-size: 1.1em;
+    color: var(--color-uno);
+}
+
+.producto_descripcion {
+    font-size: 0.88em;
+    opacity: 0.7;
+    color: var(--color-texto-fondo);
+}
+
+.producto-precio {
+    font-size: 1.05em;
+    font-weight: bold;
+}
+
+@media (max-width:600px) {
+    .producto-container {
+        font-size: calc(13px + 1vw);
+    }
+    .producto_nombre {
+        font-size: 1em;
+    }
+    /* Foto de producto */
+    .producto_foto {
+        width: 6.5em;
+        height: 6.5em;
+    }
+}
+
+/* Pie de página de la carta */
+.producto-container_footer {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    justify-content: space-between;
+    width: 100%;
+    font-weight: 700;
+}

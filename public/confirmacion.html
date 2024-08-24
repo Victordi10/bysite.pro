@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirmación de Correo Electrónico</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap');
+        *{
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 400;
+        }
+
+        body {
+            background-color: #111B28;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100vh;
+            min-width: fit-content;
+            font-size: calc(16px + 1vw);
+        }
+
+        div {
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+            gap: .5em;
+            width: 100%;
+            font-size: .9em;
+            background-color: #ffffff;
+            padding:1.5em .5em;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #333333;
+            text-align: center;
+        }
+
+        p {
+            color: #666666;
+        }
+
+        a {
+            display: inline-block;
+            background-color: #007bff;
+            color: #ffffff;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1>¡%=titulo%>!</h1>
+        <p> %=correo%> %=mensaje%>.</p>
+        <a href="" id="enlacePanel">Ir al panel</a>
+    </div>
+    <script>
+        // Obtener el protocolo (http, https)
+    const protocol = window.location.protocol;
+    console.log(protocol);  // Ejemplo: "http:"
+    
+    // Obtener el nombre del host (incluyendo el puerto)
+    const host = window.location.host;
+    console.log(host);  // Ejemplo: "localhost:8020"
+
+    const panelURL = `${protocol}//${host}/panel.html/%=panel%>/`
+    document.getElementById("enlacePanel").href = panelURL
+console.log(panelURL)
+
+    setTimeout(()=>{window.location.href = panelURL},3000)
+
+    </script>
+</body>
+</html>

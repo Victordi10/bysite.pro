@@ -1,0 +1,473 @@
+
+:root{
+  --border-radius: 8px;
+  --input-padding: 8px 12px;
+}
+/* Footer de la página */
+.panel_footer {
+  background-color: var(--color-cuatro) !important;
+}
+
+.suscribirse-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  font-size: calc(16px + 0.5vw);
+  width: 100%;
+  padding: 1em .5em;
+  text-align: center;
+}
+.suscribirse-parrafo{
+  font-size: 1.1em;
+}
+.suscribirse-btn {
+  font-size: 1.2em;
+  display: none;
+  border-radius: 5px;
+  font-weight:600;
+}
+#suscribirseBtn{
+  font-size: 1.2em;
+}
+
+/* contenedor de la pasarela de suscripcion */
+.seccion-pasarela {
+  background-color: var(--color-cuatro);
+  padding: 1.5em 0.5em;
+  position: fixed;
+  top: 0;
+  left: 0;
+  transform: scale(0);
+  opacity: 0;
+  transition: all 0.2s ease-in;
+  width: 100%;
+  height: 100vh;
+  min-height: min-content;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  font-size: calc(16px + 1vw);
+}
+
+.mostrarOvelayModal {
+  transform: scale(1);
+  opacity: 1;
+  z-index: 5553344;
+  transition: all 0.3s ease;
+}
+
+.no-scroll {
+  overflow: hidden;
+}
+
+#btn-planesCerrar {
+  cursor: pointer;
+  font-size: 2em;
+}
+
+.div-pasarela {
+  width: 100%;
+  height: 100%;
+  background-color: var(--color-cuatro);
+  color: var(--color-uno);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  text-align: center;
+  gap: 0.5em;
+  font-size: 1em;
+  border-radius: var(--border-radius);
+}
+
+.seccion-planes_titulo {
+  font-size: 1.8em;
+  margin: 0 auto;
+}
+
+.planes-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: row-reverse;
+  gap: 15px;
+  font-size: 1.1em;
+  width: 100%;
+  overflow: auto;
+  margin: 0 auto;
+  height: 100%;
+  padding:10px 18px;
+}
+
+@media (max-width: 500px) {
+  .planes-container {
+    font-size: 1.3em;
+  }
+}
+
+@media (max-width: 420px) {
+  .seccion-planes {
+    padding: 0;
+  }
+
+  .planes-container {
+    font-size: 1em;
+  }
+}
+
+.planes-container h3 {
+  font-weight: 300;
+  font-size: 1em;
+}
+
+.plan {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+  gap: 5px;
+  font-size: 1em;
+  width: 100%;
+  color: #000;
+  background-color: var(--color-cuatro);
+  box-shadow: 0 0 15px rgba(24, 48, 121, 0.2);
+  border-radius: 1em;
+  min-width: fit-content;
+  min-height: min-content;
+}
+
+@media (max-width: 1000px) {
+  .plan {
+    min-height: fit-content;
+    height: auto;
+    max-height: max-content;
+    font-size: 1.15em;
+    justify-content: flex-start;
+    gap: 15px;
+  }
+}
+
+@media (max-width: 700px) {
+  .plan {
+    font-size: 1.45em;
+  }
+}
+
+.plan:hover {
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Estilos generales para los encabezados de los planes */
+.plan-header {
+  width: 100%;
+  padding: 1.5em 1em;
+  font-weight: 300; /* Font-weight 300 para una apariencia más moderna */
+  font-size: 0.8em; /* Aumento ligero del tamaño de fuente para mejorar la legibilidad */
+  text-align: center; /* Centrar el texto para una presentación más uniforme */
+  border-radius: 0.5em; /* Bordes redondeados para un diseño más moderno */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra suave para un efecto de elevación */
+  margin-bottom: 1em; /* Espacio inferior para separación entre elementos */
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Transiciones suaves para interactividad */
+}
+
+.plan-header:hover {
+  transform: scale(1.02); /* Escala ligera al pasar el ratón para resaltar */
+}
+
+/* Estilos para los precios de los planes */
+.plan-precio {
+  font-size: 1.7em; /* Aumento ligero del tamaño de fuente para destacar el precio */
+  font-weight: 700; /* Peso de fuente más alto para mayor impacto visual */
+  margin-bottom: 0.2em; /* Espacio inferior para separación entre elementos */
+}
+
+/* Encabezado del plan Empresario */
+.plan-empresario_header {
+  background-color: var(--color-dos);
+  color: var(--color-cuatro);
+}
+
+/* Encabezado del plan Emprendedor */
+.plan-emprendedor_header {
+  background-color: var(--color-tres);
+  color: var(--color-cuatro);
+}
+
+/* Encabezado del plan Básico */
+.plan-basico_header {
+  background-color: var(--color-uno);
+  color: var(--color-cuatro);
+}
+
+/* Encabezado del plan Prueba */
+.plan-prueba_header {
+  background-color: #90EE90; /* Verde claro para un diseño fresco */
+  color: var(--color-cuatro);
+}
+
+.plan-lista {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 20px;
+  list-style: none;
+  width: 100%;
+  padding: 0.5em;
+}
+@media (max-width:500px) {
+  .plan-lista {
+    margin-bottom: 10px;
+  }
+}
+
+.plan-lista li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  font-size: 0.6em;
+  gap: 20px;
+  font-weight: 400;
+  color: #000;
+}
+
+.plan-lista p {
+  font-size: 1em;
+  text-transform: capitalize;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  text-align: left;
+  gap: 5px;
+  width: 100%;
+}
+.plan-boton{
+  position: relative;
+  bottom: 0;
+  margin-bottom: auto;
+}
+.plan-boton,
+.suscribirse-btn {
+  font-size: 0.8em;
+  color: var(--color-cuatro);
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  transition: background-color 0.3s ease;
+}
+
+
+.plan-boton:hover {
+  background-color: #0056b3;
+  color: #fff;
+}
+
+#plan4 {
+  background-color: var(--color-dos);
+  color: var(--color-cuatro);
+  margin-bottom: 10px;
+}
+
+#plan3 {
+  background-color: var(--color-tres);
+  color: var(--color-cuatro);
+  margin-bottom: 10px;
+}
+
+#plan2 {
+  background-color: var(--color-uno);
+  color: var(--color-cuatro);
+  margin-bottom: 10px;
+}
+
+#plan1 {
+  background-color: #90EE90;
+  color: var(--color-cuatro);
+  margin-bottom: 10px;
+}
+/* clase del boton de cancelar plan */
+.btnCancelarPlan:hover{
+  background-color: #000 !important;
+  color: #fff !important;
+  transform: scale(1.01);
+}
+
+/* icono de beneficio */
+.fa-check{
+  color: rgb(11, 204, 11);
+}
+/* icono intermedio de los planes */
+.fa-exclamation-circle{
+  color: #dfbe00a4;
+}
+/* ajustes par alos no beneficios*/
+.iconNoBene{
+  color: #999 !important;
+}
+.iconNoBene span i{
+  color: rgba(158, 3, 3, 0.616);
+}
+
+/* formulario de tarjeta */
+.form-checkout {
+  background-color: #fff;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  max-width: 600px;
+  margin: auto;
+  min-height: fit-content;
+  width: 100%;
+  height: auto;
+  overflow: auto;
+  padding: 1.5em;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: var(--border-radius);
+}
+@media (max-width:500px) {
+  .form-checkout{
+    margin-top: -5px;
+  }
+}
+.mostrarFormPago {
+  display: flex;
+  width: 100%;
+}
+
+.container {
+  margin-bottom: 16px;
+  font-size: 1em;
+  width: 100%;
+}
+
+.form-label__pago {
+  margin-bottom: 8px;
+  display: block;
+  font-size: 0.9em;
+  color: #555;
+}
+.labelNone{
+  display: none;
+}
+
+.form-input__pago {
+  width: 100%;
+  height: 50px;
+  border: 1px solid #ccc;
+  border-radius: var(--border-radius);
+  padding: var(--input-padding);
+  padding-left: 1.6em;
+  font-size: 1em;
+  transition: border-color 0.3s ease;
+}
+
+.form-input__pago:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+.form-input__pago::placeholder {
+  color: #bbb;
+}
+
+.tarjeta-container_inpust {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.form-boton__pago {
+  width: 100%;
+  min-width: 230px;
+  font-size: 1em;
+  border-radius: var(--border-radius);
+  margin-top: 10px;
+  padding: var(--input-padding);
+  border: none;
+  background-color: #007bff;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.form-boton__pago:hover {
+  background-color: #0056b3;
+}
+
+.progress-bar {
+  width: 100%;
+  margin-top: 10px;
+  display: none;
+}
+
+.planSeleccionado {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  background-color: #f9f9f9;
+  padding: 10px;
+  border-radius: var(--border-radius);
+  margin-bottom: 20px;
+}
+
+.planSeleccionado__detalles {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 5px;
+  font-size: 0.9em;
+}
+
+.planSeleccionado__plan {
+  opacity: 0.9;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.planSeleccionado__precio {
+  font-weight: 600;
+}
+
+.btn-cambiarPlan {
+  padding: 0.5em;
+  border: none;
+  color: #007bff;
+  background-color: inherit;
+  font-size: 0.8em;
+  cursor: pointer;
+  text-decoration: underline;
+  transition: color 0.3s ease;
+}
+
+.btn-cambiarPlan:hover {
+  color: #0056b3;
+}
+
+.form-input__icon {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.form-input__icon input,
+.form-input__icon select {
+  padding-left: 2.5em;
+}
+
+.form-input__icon .icon {
+  position: absolute;
+  left: 10px;
+  color: #ccc;
+}
+

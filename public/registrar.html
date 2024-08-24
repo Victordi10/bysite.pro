@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ens">
+
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-N0EYWJXFF1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-N0EYWJXFF1');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="markeplace, comercio electronico, paginas web">
+    <meta name="description"
+        content="Somos bysite pro una plataforma de comercio electornico en el que podras crear y administrar tu negocio de manera efectiva y facil">
+    <meta name="author" content="Victor Manuel Cordoba">
+    <meta name="copyright" content="Bysite pro">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <!-- ajustes de estilos -->
+    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="css/registrarse.css">
+    <link rel="stylesheet" href="css/cabecera.css">
+    <link rel="icon" href="img/icon.jpeg">
+    <!-- biblio para iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
+
+    <title>Registrarse Bysite pro </title>
+</head>
+
+<body>
+    <div class="container">
+        <main class="main-container">
+            <div class="formulario">
+                <form action="" class="form-container pasarela-seccion" id="formContainer"
+                    enctype="multipart/form-data">
+                    <fieldset class="formulario-container_items">
+                        <legend class="form_titulo">Registro del Administrador</legend>
+                        <div>
+                            <label for="userEmail" class="form-label">Correo electrónico:</label>
+                            <input type="email" placeholder="Ingrese su correo electrónico" name="userEmail"
+                                id="userEmail" class="form-input" required>
+                        </div>
+                       <!--  <div>
+                            <label for="userNombre" class="form-label">Nombre:</label>
+                            <input type="text" placeholder="Ingrese su nombre" name="userNombre" id="userNombre"
+                                class="form-input" required>
+                        </div>
+                        <div>
+                            <label for="userTelefono" class="form-label">Teléfono:</label>
+                            <input type="tel" placeholder="Ingrese su número" name="userTelefono" id="userTelefono"
+                                class="form-input" required>
+                        </div> -->
+                        <div>
+                            <label for="userContraseña" class="form-label">Contraseña:</label>
+                            <input type="password" placeholder="Ingrese su contraseña" name="userContraseña"
+                                id="userContraseña" class="form-input" required>
+                        </div>
+                        <div>
+                            <label for="userConfiContraseña" class="form-label">Confirmar Contraseña:</label>
+                            <input type="password" placeholder="Confirme su contraseña" name="userConfiContraseña"
+                                id="userConfiContraseña" class="form-input" required>
+                        </div>
+                    </fieldset>
+                    <input type="hidden" name="suscripcion" value="">
+                    <div class="container_checkbox">
+                        <input type="checkbox" id="aceptarTerminos" name="aceptarTerminos" value="Aceptado" required
+                            class="checkbox">
+                        <label for="aceptarTerminos" class="form-label">Acepto los <a href="#" class="enlace">Términos y
+                                Condiciones</a> y las <a href="#" class="enlace">políticas de privacidad</a> de bysite_pro</label>
+                    </div>
+                </form>
+
+                <!-- formulario de verificacion de codigo -->
+                <form class="form-container" id="formVerificacionCodigo">
+                    <label for="inputCodigo" class="form-label" id="formLabelCodigo">
+                        <h3>Codigo de verificacíon</h3>
+                        <p>Necesitamos verificar tu correo por seguridad, te enviamos el código de verificación a 
+                            <strong class="imprimirCorreo"></strong></p>
+                    </label>
+                    <input type="text" required placeholder="Código" class="form-input" id="inputCodigo">
+                    <!-- <button id="btnverificarCodigo" class="boton">Verificar</button> -->
+                </form>
+
+                 <!-- contenedor de imprimir -->
+                 <p id="imprimirMen" class="imprimirMen" ></p>
+                 <footer class="form-footer_container">
+                    <!-- progress bar -->
+                    <div class="progessBar-container">
+                        <div class="progessBar" id="progessBar"></div>
+                    </div>
+
+                    <button class="form-footer_boton boton_enviar  boton">Registarse</button>
+                </footer>     
+        
+            </div>
+                <p class="tener-cuenta">¿Ya tienes una cuenta? <a href="login.html" class="bo-iniciar_a">Iniciar Sesión</a></p>
+                 
+        </main>
+    </div>
+    <script src="js/registrar.js"></script>
+</body>
+
+</html>

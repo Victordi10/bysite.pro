@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../../img/icon.jpeg" />
+    <link rel="stylesheet" href="css/estilos.css" />
+    <title>404 - pagina No Encontrada</title>
+    <style>
+        /* Estilos básicos para la página 404 */
+        :root {
+            --color-uno: #111B28;
+            --color-dos: #009CDF;
+            --color-tres: #172E73;
+            --color-hover: #0056b3;
+            --color-cuatro: #ffffff;
+            --border-radius: 0.9em;
+            --border-rad-boton: 0.5em;
+            --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: var(--color-cuatro);
+            color: var(--color-cuatro);
+            display: flex;
+            justify-content:center;
+            align-items: flex-start;
+            height: 100vh;
+            text-align: center;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 800px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        .header{
+            width: 100%;
+            background-color: #111B28;
+        }
+
+        .header img {
+            max-width: 100px;
+        }
+
+        h1 {
+            font-size: 7em;
+            color: var(--color-uno);
+            margin: 0;
+        }
+
+        p {
+            font-size: 1.2em;
+            color: var(--color-uno);
+            margin: 20px 0;
+        }
+
+        .cta a {
+            display: inline-block;
+            font-size: 1.1em;
+            color: var(--color-cuatro);
+            text-decoration: none;
+            padding: 10px 20px;
+            border: 2px solid var(--color-dos);
+            border-radius: var(--border-rad-boton);
+            background-color: var(--color-dos);
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .cta a:hover {
+            background-color: var(--color-hover);
+            color: var(--color-cuatro);
+        }
+
+       
+
+        @media (max-width: 500px) {
+            .container {
+                padding: 1em;
+            }
+
+            h1 {
+                font-size: 4em;
+            }
+
+            
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <img src="../../img/logo.jpeg" alt="Logo de la página">
+        </div>
+        <h1>404</h1>
+        <p>La pagina que estás buscando no se ha encontrado.</p>
+        <div class="cta">
+            <p>¿Quieres crear una tienda virtual gratis?</p>
+            <a href="../../index.html">ir a inicio</a>
+        </div>
+        <!-- <div class="cta">
+            <p>¿Quieres una página web gratis?</p>
+            <a href="registrarse.html">¡Regístrate ahora!</a>
+        </div> -->
+    </div>
+</body>
+</html>

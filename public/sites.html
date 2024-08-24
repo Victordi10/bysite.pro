@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/estilos.css" />
+
+    <title>Lista de Negocios</title>
+    <style>
+        /* Estilos generales */
+        body{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-size:calc(16px + 1vw);
+            padding: .5em;
+        }
+        h1{
+            text-align: center;
+            font-weight:600;
+            font-size:2em;
+        }
+        
+        #negocios-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            align-items: center;
+            gap: 15px;
+            justify-items: center;
+            width: 100%;
+            padding: 1em;
+        }
+        .negocio-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: var(--color-cuatro);
+            padding: 1em ;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            text-decoration: none !important;
+            color: #000;
+            transition: transform 0.3s;
+            width: 100%;
+            font-size:calc(16px + 1vw);
+            
+        }
+
+        .negocio-container:hover {
+            transform: translateY(-5px);
+        }
+
+        .negocio-logo {
+            width: 10em;
+            height: 10em;
+            object-fit: cover;
+            border-radius: 10px;
+            object-position: center;
+        }
+
+        .negocio-nombre {
+            font-size: 1.2em;
+            margin: 0.5em 0;
+        }
+
+        .negocio-boton {
+            background-color:var(--color-dos);
+            color: #fff;
+            border: none;
+            padding: 0.5em 1em;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size:.9em;
+        }
+        
+
+       
+    </style>
+</head>
+<body>
+    <h1>Lista de Negocios</h1>
+    <div id="negocios-container"></div>
+    
+    <script>
+        const imprimirNegocios = (negocios) => {
+            const container = document.getElementById('negocios-container');
+            if (!container) {
+                console.error("El contenedor 'negocios-container' no se encontró.");
+                return;
+            }
+
+            container.innerHTML = ''; // Limpiar contenedor antes de agregar nuevos elementos
+
+            negocios.forEach((negocio) => {
+                let negocioLogo = `${negocio.id_unico_dueno}/negocio_${negocio.id}/logo.jpg`;
+                const a = document.createElement("a");
+                a.classList.add("negocio-container");
+                a.innerHTML = `
+                    <img src="${negocioLogo}" alt="${negocio.nombre} Logo" class="negocio-logo">
+                    <h2 class="negocio-nombre">${negocio.nombre.replace(/_/g, ' ')}</h2>
+                    <button class="negocio-boton boton">Ver página</button>
+                `;
+                a.href = `https://bysite.pro/negocio/${negocio.nombre}/${negocio.id}`;
+                container.appendChild(a);
+            });
+        }
+
+        const obtenerNegocios = async () => {
+            try {
+                const host = window.location.origin; // Cambiado de window.location.host a window.location.origin
+                const response = await fetch(`/sites/all`);
+                if (response.status === 200) {
+                    const data = await response.json();
+                    console.log("funciona");
+                    return data.data; // Acceder a la propiedad data del objeto JSON
+                } else {
+                    console.log("status", response.status);
+                    throw new Error(`Error: ${response.status}`);
+                }
+            } catch (error) {
+                console.error("Error al obtener los negocios:", error);
+                return []; // Devolver un arreglo vacío en caso de error
+            }
+        }
+
+        const llamarDatos = async () => {
+            try {
+                const negocios = await obtenerNegocios();
+                if (negocios.length > 0) {
+                    console.log(negocios);
+                    imprimirNegocios(negocios);
+                } else {
+                    console.log("No hay negocios para mostrar.");
+                }
+            } catch (error) {
+                console.error("Error al obtener e imprimir los negocios:", error);
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', llamarDatos);
+    </script>
+</body>
+</html>

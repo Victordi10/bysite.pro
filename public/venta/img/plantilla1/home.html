@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <title>%=negocioNombre%></title>
+    <meta charset="UTF-8">
+    <link rel="icon" href="" id="logoIcon">
+    <!-- biblioteca para slider -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <link rel="stylesheet"href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    <!-- biblio para iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
+    <meta name="keywords" content="restaurante, asados, hamburguesas, comida de lujo, colombiana, Makabro, parrilla, gourmet, carne, cortes de carne, parrillada, sabores colombianos, cocina colombiana, experiencia gastronómica, comida deliciosa, platos exquisitos">
+    <meta name="description" content="Disfruta de los mejores asados, hamburguesas gourmet y comida de lujo colombiana en Makabro. Somos tu destino para una experiencia gastronómica única. Nuestro menú incluye una variedad de sabores colombianos, cortes de carne selectos y platos exquisitos para satisfacer tus antojos. Ven y descubre por qué somos el restaurante favorito de los amantes de la buena comida en Colombia.">
+    <meta name="author" content="Victor Manuel Cordoba">
+    <meta name="copyright" content="Bysite pro %=negocioNombre2%>">
+    <meta name="robots" content="index, follow">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="/venta/plantilla1/css/home.css">
+    <link rel="stylesheet" href="/venta/plantilla1/css/catalogo.css">
+    <link rel="stylesheet" href="/venta/plantilla1/css/carrito.css">
+    <link rel="stylesheet" href="/venta/plantilla1/css/estilos.css">
+    <!-- cambiar las meta en el lanzamiento -->
+</head>
+<body>
+    <div class="container">
+        <input type="hidden" id="id_unico_dueno" value="%=id_unico_dueno%>">
+        <input type="hidden" id="idNegocio" value="%=idNegocio%>">
+        <input type="hidden" id="suscripcion" value="%=suscripcion%>">
+
+        <header class="cabecera">
+            <nav class="nav-container">
+                <h1 class="nav_logo nombreNegocioLogo h1"></h1>
+                <div class="nav-botones_container">
+                    <button class="nav-boton irCatalogo cambiarSeccion">Catálogo</button>
+                    <button class="nav_contacto nav-boton">Contacto</button>
+                    <a href="#" class="nav_redes_sociales nav-boton facebook" target="_blank">
+                        <i class="fab fa-facebook"></i>
+                    </a>
+                    <a href="#" class="nav_redes_sociales nav-boton instagram" target="_blank">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <!-- Agrega más botones de redes sociales según sea necesario -->
+                </div>
+            </nav>
+        </header>
+        
+        <main class="main-container ">
+            <!-- progressBar -->
+            <div class="progessBar-container" id="progessBar-container_obtener">
+              <div class="progessBar" id="progessBar_obtener"></div>
+            </div>
+             <!-- imprimir mensajes en ventana modal -->
+             <div class="mensajes-modal">
+              <img src="../../img/close.png" alt="" id="btn_mensajeModalCerrar" class="boton_funcional" />
+              <p class="imprimirMen imprimirMenModal"></p>
+            </div>
+
+                    <!-- botones flotantes -->
+            <div class="ma-containerBtnFlo">
+                <a href="" target="_blank" class="enlaceWhatsApp whatsapp" id="enlaceWhatsapp">
+                <i class="fab fa-whatsapp botonFwhatsapp"></i>
+                </a>
+            </div>
+            <div class="seccion_pagina pagina_venta" id="pagina_venta">
+                <section class="seccion_cover">
+                    <h2>Bienvenidos a <strong id="negocioNombre">%=negocioNombre3%></strong></h2>
+                    <div class="cover-content">
+                        <div class="cover-img-container">
+                            <img src="" alt="Logo del negocio negocio" class="cover-img">
+                        </div>
+                        <div class="cover-content_texto">
+                            <p class="cover-parrafo" id="cover-parrafoNegocio">Descripción breve del negocio y sus servicios.</p>
+                            <button class="cover-texto_boton boton" onclick="mostrarCatalogo()"><i class="fas fa-book-open"></i> Ver Catálogo</button>
+                            <div class="cover-botones">
+                            </div>
+                        </div>
+                    </div>
+                </section>
+    
+                <section class="seccion_categoria">
+                    <h2>Categorías Destacadas</h2>
+                    <div class="categorias-content">
+                       
+                    </div>
+                </section>
+               <!-- <section class=" seccion-productos">
+                    <h2>Ultimos agregados</h2>
+                    <div class="carrucel carousel seccion-ultimos_agregados" id="seccion-ultimos_agregados">
+                        
+                    </div>
+                </section>-->
+
+                <section class="seccion-productos">
+                    <h2>Productos destacados</h2>
+                    <div class="carrucel slider-container_carrucel seccion-productos_destacados" id="seccion-productos_destacados">
+                        
+                      </div>
+                </section>
+
+                <section class=" seccion-productos">
+                    <h2>Productos recomendados</h2>
+                    <div class="carrucel slider-container_carrucel seccion-productos_recomendados" id="seccion-productos_recomendados">
+                   
+                    </div>
+                </section>
+    
+                <!-- <section class="seccion-recientes">
+                    <h2>Ultimos agregados</h2>
+                    <div class="recientes-container">
+                        <article class="productos-recientes_container">
+                            <figure class="producto-reciente">
+                                <img src="" alt="">
+                                <figcaption>
+                                    <span class="producto-reciente_titulo">Sopa de pasta</span>
+                                    <p class="producto-reciente_des">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quidem, dolore.</p>
+                                    <span class="produto-recieente_precio">100.000</span>
+                                </figcaption>
+                            </figure>
+                        </article>
+
+                        <div class="ordenar-opciones">
+                            <i class="fas fa-home"><span>A domiciolio</span></i>
+                            <i class="fas fa-store"><span>Para retirar</span></i>
+                        </div>
+                        <button class="boton">Pedir</button>
+                    </div>
+                </section> -->
+            </div>
+
+
+            <div class="seccion_pagina pagina_catalogo" id="pagina_catalogo">
+                <header class="main-header">
+                    <nav class="main-nav">
+                        <i class="fas fa-search botonBuscador botonFuncional"></i>
+                        <!-- icon menu -->
+                        <i class="fas fa-bars botonFuncional" id="botonAbrirNavLateral"></i>
+                        <div class="nav-categorias">
+                        </div>
+                        <i class="fas fa-shopping-cart botonFuncional" id="mainNavBotonCarrito"></i>
+                    </nav>
+                    <nav class="main-nav_lateral">
+                        <i class="fas fa-times botonFuncional" id="botonCerrarNavLateral"></i>
+                        <div class="nav-categorias_lateral">
+                            <h3>Categorias</h3>
+                        </div>
+                    </nav>
+                    <div class="buscadorContainer">
+                        <input type="search" name="buscador" id="buscador" class="buscador-input" placeholder="Buscar...">
+                        <i class="fas fa-times botonFuncional boton-cerrar_buscador"></i>
+                    </div>
+    
+                    <div class="seccion-carrito noRecepcion">
+                        <div class="carrito-container">
+                            <header class="carrito-header">
+                                <span>Tu carrito</span>
+                                <button class="botonFuncional carritoCerrarBoton">
+                                    <i class="fas fa-times"></i> Cerrar
+                                </button>
+                            </header>
+                            <main class="carrito-main">
+                            
+                                <p class="carrito-mensaje">Aún no tienes productos en el carrito...</p>
+                            </main>
+                            <footer class="carrito-footer">
+                                <span id="carrito-total"></span>
+                                <button class="carrito-boton boton_comprar">
+                                    <i class="fas fa-shopping-cart"></i> Comprar
+                                </button>
+                            </footer>
+                        </div>
+                    
+                        <div class="seccion-formulario_carrito">
+                            <header>
+                                <i class="fas fa-times  CerrarFormCarrito"></i>
+                            </header>
+                            <form class="carrito-formulario">
+                                <fieldset class="carrito_form-container">
+                                    <h3 class="carrito_form-titulo">Información del cliente</h3>
+                                    <input type="text" placeholder="Nombre (opcional)" class="carrito-input" id="clienteNombre">
+                                    <input type="tel" placeholder="Teléfono" class="carrito-input" id="clienteCel">
+                                </fieldset>
+                            
+                                <fieldset class="carrito_form-container">
+                                    <h3 class="carrito_form-titulo">Opciones de entrega</h3>
+                                    <div class="checkbox-container">
+                                        <input type="checkbox" value="Envio a domicilio" class="carrito-checkbox" id="aDomicilio" name="opcionEntrega" onchange="soloUnCheckbox(this)">
+                                        <label for="aDomicilio"></label>
+                                        <span>Envío a domicilio</span>
+                                        <div id="direccion-container">
+                                            <input type="text" placeholder="Dirección" name="" class="carrito-input" id="clienteDireccion">
+                                            <input type="text" placeholder="Barrio o sector" class="carrito-input" id="clienteBarrio">
+                                            <input type="text" placeholder="Referencia adicional" class="carrito-input" id="clienteReferencia">
+                                        </div>
+                                    </div>
+                                    <div class="checkbox-container">
+                                        <input type="checkbox" value="Retirar en el negocio" class="carrito-checkbox" id="retiEnNegocio" name="opcionEntrega" onchange="soloUnCheckbox(this)">
+                                        <label for="retiEnNegocio"></label>
+                                        <span>Retiro en el negocio</span>
+                                    </div>
+                                </fieldset>
+                            
+                                <fieldset class="carrito_form-container">
+                                    <h3 class="carrito_form-titulo">Forma de pago</h3>
+                                    <select name="" id="select-pago" class="select-pago" onchange="mostrarCambio(this)">
+                                        <option value="transferencia" class="option-pago">Transferencia</option>
+                                        <option value="efectivo" class="option-pago">Efectivo</option>
+                                    </select>
+                                    <input type="text" placeholder="Con cuánto va a pagar" class="carrito-input" id="input-cambio" style="display: none;">
+                                </fieldset>
+                                <textarea name="" id="clienteNota" cols="30" rows="5" placeholder="Agregar nota..." class="carrito-form_textarea"></textarea>
+                            </form>
+                            <footer>
+                                <button class="carrito-form_boton" id="btnPedir">
+                                    <i class="fas fa-paper-plane"></i> Pedir
+                                </button>
+                            </footer>
+                        </div>
+                    </div>
+                </header>
+                
+                <div class="main-categorias">
+                    
+                </div>
+
+                <div class="modal-overlay">
+                    <div class="modal-overlay_div">
+                        <i class="fas fa-times botonCerrarFocusProductos"></i>
+                    </div>
+                    <div class="producto-focus_container">
+                        <img src="" alt="" class="producto-focus_foto" id="productoFocusFoto">
+                        <div class="producto-focus_detalles">
+                            <h3 class="producto-focus_nombre"></h3>
+                            <span class="producto-focus_precio"></span>
+                            <p class="producto-focus_descripcion"></p>
+                            <footer class="producto-focus_footer">
+                                <div class="producto-focus_carrito">
+                                    <button class="producto-focus_boton producto-focus_bajarCan noRecepcion">
+                                        <i class="fas fa-minus"></i>
+                                    </button>
+                                    <span class="producto-focus_mostrarCan noRecepcion"></span>
+                                    <button class="producto-focus_boton producto-focus_subirCan noRecepcion">
+                                        <i class="fas fa-plus"></i>
+                                    </button>
+                                </div>
+                                <button class="producto-focus_boton boton-gregar_carrito noRecepcion">
+                                    <i class="fas fa-cart-plus"></i> Agregar
+                                </button>
+                            </footer>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <footer class="footer-container">
+            <section class="seccion-contacto">
+                <h3>Síguenos y contactanos</h2>
+                <div class="contacto-container">
+                    <p id="correo">negocio@gmail.com</p>
+                    <p id="telefono-negocio">32456435632</p>
+                </div>
+                <div class="redes-sociales">
+                    <a href="#" target="_blank" class="red-social facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" target="_blank" class="red-social  whatsapp"><i class="fab fa-whatsapp"></i>
+                        </a>
+                    <a href="#" target="_blank" class="red-social tiktok"><i class="fab fa-tiktok"></i></a>
+                    <a href="#" target="_blank" class="red-social instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" target="_blank" class="red-social youtube"><i class="fab fa-youtube"></i></a>
+
+                </div>
+            </section>
+        </footer>
+    </div>
+    <script src="/venta/plantilla1/js/home.js"></script> 
+    <script src="/venta/plantilla1/js/imprimir.js"></script> 
+    <script src="/venta/plantilla1/js/carrito.js"></script>
+    <!-- Bibliotecas -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
+    <script>
+            
+        const swiper = new Swiper('.swiper', {
+         // Optional parameters
+         direction: 'horizontal',
+         loop: true,
+       
+         // If we need pagination
+         pagination: {
+           el: '.swiper-pagination',
+         },
+       
+         /* // Navigation arrows
+         navigation: {
+           nextEl: '.swiper-button-next',
+           prevEl: '.swiper-button-prev',
+         }, */
+       
+         // And if we need scrollbar
+         scrollbar: {
+           el: '.swiper-scrollbar',
+         },
+       });
+        </script>
+                    
+</body>
+</html>

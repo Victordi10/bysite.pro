@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .container {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #e0e0e0;
+            border-radius: 10px;
+            background-color: #f9f9f9;
+        }
+        .header {
+            text-align: center;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        .header h1 {
+            color: #0073e6;
+        }
+        .content {
+            padding: 20px 0;
+        }
+        .content p {
+            line-height: 1.6;
+            color: #333;
+        }
+        .footer {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #e0e0e0;
+            color: #888;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Notificación de Usuario</h1>
+        </div>
+        <div class="content">
+            <p>Estimado administrador,</p>
+            <p>Te informamos que ha ocurrido la siguiente acción en Bysite Pro:</p>
+            <p><strong>Acción:</strong> {{accion}}</p>
+            <!-- <p><strong>Usuario:</strong> {{usuario}}</p> -->
+            <p><strong>Correo:</strong> {{correo}}</p>
+            <p><strong>Fecha:</strong> {{fecha}}</p>
+            <p><strong>Plan:</strong> {{plan}}</p>
+            <p><strong>Motivo:</strong> {{motivo}}</p>
+        </div>
+        <div class="footer">
+            <p>Este correo electrónico fue enviado automáticamente. Por favor, no responda a este mensaje.</p>
+            <p>&copy; 2024 Bysite Pro. Todos los derechos reservados.</p>
+        </div>
+    </div>
+</body>
+</html>

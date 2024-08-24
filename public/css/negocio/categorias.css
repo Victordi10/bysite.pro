@@ -1,0 +1,189 @@
+
+#seccionFormularioCategorias{
+    overflow: hidden;
+    height: 100%;
+}
+.categoria_input{
+    border: 1px solid var(--color-dos);
+}
+
+.categoria_label{
+    color: var(--color-cuatro);
+}
+#articulosForCategoriaContainer{
+    overflow: auto;
+    height: 100%;
+    align-items: flex-start;
+    justify-content: flex-start;
+
+}
+#articulosForCategoria{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+    align-items:center;
+    justify-items: center;
+    width: 100%;
+    gap: 16px;
+    overflow: auto;
+}
+
+/* oculto el contenedor al prinsipio */
+.seccionFormCategora_2{
+    display:none;
+}
+
+/* ajustes para los contenedores de productos */
+.productoSinCate-container{
+    background-color: var(--color-uno);
+    color: var(--color-cuatro);
+    height: fit-content;
+    box-shadow:  0 0 5px #0000004b;
+    font-size: 0.9em;
+}
+
+/* container categorias en el header del inventario */
+
+.inventario-header__Categorias {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    width: 100%;
+    position: relative;
+}
+.categorias-container{
+    list-style: none;
+    background-color: var(--color-cuatro);
+    color: var(--color-uno);
+    gap: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    width: fit-content;
+    min-width: 150px;
+    position: absolute;
+    top: 40px;
+    right: 0;
+    padding: 1.1em;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.329);
+    z-index: 10000000;
+}
+.categorias-container span{
+    font-weight: 700;
+    font-size: 1em;
+}
+.categorias-container ul{
+    gap: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    width: 100%;
+}
+.categorias-container li{
+    border-bottom: 1px solid #999;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    gap: 8px;
+    position: relative;
+    padding: 5px;
+}
+.categorias-container li span{
+    font-weight: 400;
+    text-transform: capitalize;
+}
+
+.categoria_contenedor__opciones{
+    position: absolute;
+    right: 0;
+    margin-bottom: 80px;
+    background-color: var(--color-uno);
+    padding: 0.35em;
+    display: none ;
+    flex-direction: column;
+    align-items: center;
+    z-index: 20;
+    gap: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    width: calc(fit-content + 10px);
+    height: calc(fit-content + 10px);
+}
+/* ajustes para el icono de opciones */
+.categoriaOpciones-boton {
+    font-size: 26px; /* Ajusta el tamaño según tus necesidades */
+    color: var(--color-uno); /* Cambia el color según tus necesidades */
+    cursor: pointer; /* Cambia el cursor para indicar que es un botón */
+}
+/* Ajustes para el icono de opciones */
+.categoria-boton{
+    font-size: 0.8em;
+    cursor: pointer;
+    color: var(--color-cuatro);
+    width: 100%;
+    background-color: transparent;
+    text-transform: capitalize;
+    text-align: center;
+    border: none;
+    border-radius: 5px;
+    color: var(--color-cuatro);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+.categoria-boton:hover {
+    background-color: #f0f0f0;
+    color: #0056b3;
+}
+
+/* boton de renombrar categoria */
+#btn_categoriaRenombrar{
+    display: none;
+}
+
+
+
+/* checkbox */
+/* Estilo para un checkbox moderno */
+.checkbox-container {
+    position: relative;
+  }
+  
+  .checkbox-container input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+  }
+  
+  .checkbox-container label {
+    display: inline-block;
+    cursor: pointer;
+    padding-left: 25px;
+    position: relative;
+  }
+  
+  .checkbox-container label::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 18px;
+    height: 18px;
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    background: white;
+  }
+  
+  .checkbox-container input[type="checkbox"]:checked + label::before {
+    background: #007BFF;
+    border-color: #007BFF;
+    content: "✔";
+    color: white;
+    text-align: center;
+  }

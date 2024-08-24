@@ -1,0 +1,723 @@
+
+.div-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    font-size: calc(16px + 1vw);
+    font-family:serif;
+}
+
+
+/* Estilos generales para la cabecera */
+.cabecera {
+    width: 100%;
+    background-color: var(--color-uno);
+    font-size: calc(16px + 1vw);
+    z-index: 555331;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Contenedor de la cabecera */
+.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 1em 3em;
+    position: sticky;
+    top: 0;
+    font-size: calc(14px + 0.5vw);
+    background-color: var(--color-uno);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, padding 0.3s ease;
+}
+
+@media (max-width: 550px) {
+    .header-container {
+        padding: 0.5em 1em;
+        font-size: 1em;
+    }
+}
+
+/* Logo */
+.logo {
+    max-width: 4em;
+    min-width: 2em;
+    object-fit: cover;
+}
+
+/* Estilos para los botones del menú */
+.botones-header {
+    font-size: 1.5em;
+    color: var(--color-cuatro);
+    cursor: pointer;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.botones-header:hover {
+    transform: scale(1.1);
+    color: var(--color-dos);
+}
+
+
+#boCMenu {
+    display: none;
+}
+/* ajustes para el menu */
+.menu_container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    position: absolute;
+    height: 100vh;
+    min-height: fit-content;
+    width: 100%;
+    transform: translateY(-150%);
+    background-color: var(--color-uno);
+    gap: 20px;
+    padding:10px 2em;
+    transition: transform .5s ease-in, opacity .5s ease-in;
+    font-size:.9em;
+}
+.mostrarMenu{
+    transform: translateY(0);
+    transition: transform .5s ease-in, opacity .5s ease-in;
+} 
+.boton_menu{
+    background-color: inherit;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    padding: 10px 12px;
+    border-radius: 0.5em;
+    font-size: 1.2em;
+    font-weight:600 !important;
+
+}
+@media (max-width: 550px) {
+    .boton_menu {
+        font-size:1em;
+    }
+}
+.boton_menu:hover {
+    background-color: var(--color-hover);
+    border-radius: 0.5em;
+}
+
+#suscribirseBtnMenu{
+    display: flex;
+    gap: 5px;
+    color: var(--color-cuatro);
+    font-size:1.2em !important;
+
+}
+.bo-CerraSe {
+    background-color: var(--color-dos);
+    border: none;
+    cursor: pointer;
+    border-radius: 0.5em;
+    color: var(--color-cuatro);
+    transition: background-color 0.3s;
+}
+
+.bo-CerraSe:hover {
+    background-color: var(--color-hover);
+}
+
+/* ajustes para el cuerpo de la pagina */
+.main-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    font-size: calc(16px + 1vw);
+}
+/* estilos para el progressBar de cargar negocios */
+#progessBar-container_obtener{
+    width: 100px;
+    height: 100px;
+    margin: 150px;
+    border-radius: 0;
+    background-color: var(--color-cuatro);
+    z-index: 55533;
+}
+#progessBar_obtener{
+    height:4em;
+    width: 4em;
+    border: 4px solid var(--color-uno);
+}
+
+/* estilos para el progressBar de eliminar negocio */
+#progessBar-container_eliminar{
+    border-radius: 0;
+    background-color: var(--color-cuatro);
+    display: none;
+}
+#progessBar_eliminar{
+    height:1.5em;
+    width: 1.5em;
+    border: 4px solid var(--color-uno);
+}
+#progessBar-container_crearNegocio{
+    margin:0 auto;
+    margin-top: -30px;
+}
+#progessBar_crearNegocio{
+    border: 4px solid var(--color-uno);
+}
+/* estilos generales para progresbar */
+.progessBar:before,.progessBar:after{
+    border-bottom:  10px solid  var(--color-cuatro);
+}
+/* Estilos para el mensaje de error al obtener los negocios */
+.imprimirMen_obtener {
+    margin: 50px 0;
+    padding: 2em;
+    font-size: 1.2em;
+    background-color: #333;
+    color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    display: none;
+    text-align: center;
+    max-width: 90%;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* contenedor que pregunta si se desean eliminar el negocio */
+/* estilos generales */
+.main-pregunta_container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    font-size: 1.1em;
+    background-color: var(--color-cuatro);
+    text-align: center;
+    padding: 1.5em 2em;
+    width: 100%;
+    height: 100vh;
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transform: scale(0);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    pointer-events: none;
+    z-index: -10;
+    transition: transform 0.5s ease, opacity 0.5s ease;
+}
+/* clase para mostrar pregunta */
+.mostrarPregunta {
+    transform: scale(1) translate(-50%, -50%);
+    opacity: 1;
+    pointer-events: auto;
+    z-index: 1000;
+}
+
+/* texto de la pregunta */
+.main-pregunta_container p {
+    font-weight: 600;
+    font-size: 1.2em;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.main-pregunta_container p span {
+    font-weight: 400;
+    text-align: justify;
+    padding: 5px;
+    font-size: 0.9em;
+    color: #555;
+}
+
+/* contenedor de los botones */
+.pregunta-botones_container {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 20px;
+    width: 100%;
+    max-width: 550px;
+    margin-top: 20px;
+}
+
+/* estilos de los botones */
+.boton-pregunta {
+    font-size: 0.9em;
+    font-weight: 500;
+    padding: 0.6em 1.2em;
+    border-radius:var(--border-radius);
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s, box-shadow 0.3s, transform 0.3s;
+}
+
+.boton-pregunta {
+    background-color: var(--color-cuatro);
+    color: var(--color-uno);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.boton-pregunta:hover {
+    background-color: var(--color-dos);
+    color: var(--color-cuatro);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px);
+}
+
+/* botón cancelar */
+.pregunta_cancelar {
+    background-color: var(--color-uno);
+    color: var(--color-cuatro);
+}
+
+.pregunta_cancelar:hover {
+    background-color: var(--color-dos);
+    color: var(--color-cuatro);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px);
+}
+
+
+/* ajustes para el contenedor de los negocios */
+.negocios-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+    align-items: center;
+    justify-items: center;
+    gap: 15px;
+    width: 100%;
+    padding: 1em 2.5em;
+    background-color: #f9f9f9;
+}
+@media (max-width: 900px) {
+    .negocios-container {
+        padding: 1em 0.5em;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    }
+}
+
+@media (max-width: 400px) {
+    .negocios-container {
+        grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+        padding: 1em 0.5em;
+    }
+}
+
+/* ajustes para el contedor del negocio */
+.negocio-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: auto;
+    font-size: calc(16px + 1vw);
+    padding: 1em .5em;
+    gap: 10px;
+    background-color: var(--color-cuatro);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: box-shadow .3s ease, transform .3s ease;
+}
+
+.negocio-container:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    transform: translateY(-5px);
+}
+
+/* ajustes para la cabecera del contenedor */
+.negocio-container_header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+    font-size: 1.25em;
+    text-align: center;
+}
+
+@media (max-width: 450px) {
+    .negocio-container_header {
+        flex-direction: column;
+    }
+}
+
+/* titulo */
+.negocio-header_titulo {
+    margin-bottom: 10px;
+    text-transform: capitalize;
+    font-weight: 600;
+    color: #333;
+}
+
+/* logo */
+.negocio-header_logo {
+    width: 100%;
+    max-width: 150px;
+    object-fit: cover;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    border: 2px solid #ddd;
+}
+
+/* ajustes para el cuerpo del contendor */
+.negocio-container_main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    gap: 10px;
+    font-size: 1.2em;
+}
+
+.negocio-container_parrafo {
+    font-weight: 300;
+    text-align: center;
+    padding: 0;
+    width: 100%;
+    color: #555;
+}
+
+/* ajustes para el footer del negocio */
+.negocio-container_footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    gap: 10px;
+    padding-top: 10px;
+    border-top: 1px solid #eee;
+}
+
+.negocio-footer_boton {
+    background-color: var(--color-uno);
+    color: var(--color-cuatro);
+    padding: 0.6em 1em;
+    font-size: 0.9em;
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.negocio-footer_boton:hover {
+    background-color: var(--color-dos);
+    transform: translateY(-2px);
+}
+@media (max-width: 700px) {
+    .negocio-footer_boton {
+        font-size: 0.8em;
+    }
+}
+@media (max-width: 550px) {
+    .negocio-footer_boton {
+        font-size: 0.9em;
+    }
+}
+
+
+/* aj/* Clase para el formulario completo */
+.formulario {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    background-color: var(--color-cuatro);
+    padding:1em 1.5em;
+    margin: auto;
+    transform: scale(0);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: 100vh;
+    min-height: fit-content;
+    transform: translate(-50%, -50%);
+    transition: transform 0.5s ease, opacity 0.5s ease;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 1000;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    overflow-y: auto;
+}
+
+@media (max-width: 450px) {
+    .formulario {
+        padding: 2em 1em;
+    }
+}
+
+/* Clase para mostrar el formulario */
+.mostrarFormulario {
+    transform: scale(1) translate(-50%, -50%);
+    opacity: 1;
+    pointer-events: auto;
+    z-index: 2000000;
+    transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+/* Clase que hace que cuando el formulario esté activo no se pueda scrolear */
+.form-container {
+    width: 100%;
+    font-size: calc(16px + 0.5vw);
+    height: 100%;
+    max-height: 95vh;
+    overflow:auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    padding: 5px;
+}
+
+/* Sección de elementos del formulario */
+.formulario-container_items {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    gap: 20px;
+    width: 100%;
+    border: none;
+    text-align: center;
+    font-size: 1em;
+}
+
+/* Clase para ocultar la sección del formulario */
+.seccionForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+/* Ajustes para el título de las secciones */
+.form_titulo {
+    margin-bottom: 20px;
+    font-size: 1.5em;
+    font-weight: 600;
+    color: var(--color-uno);
+}
+
+/* Descripción del registro del negocio */
+.form-registro_descripcion {
+    text-align: center; 
+    font-size: 0.9em; 
+    opacity: 0.8;
+    padding-bottom: 20px;
+}
+
+/* Estilos para los campos del formulario */
+.formulario-container_items div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    font-size: 1em;
+}
+
+.form-label {
+    font-size: 1em; /* Un poco más grande para mayor legibilidad */
+    color: var(--color-uno);
+    font-weight: 600; /* Más grueso para destacar */
+    margin-bottom: 8px; /* Espacio adecuado debajo del label */
+    display: block; /* Asegura que esté en una nueva línea */
+    transition: color 0.3s ease; /* Transición suave para el color */
+}
+
+.form-label a {
+    text-decoration: none;
+    color: var(--color-dos);
+    transition: color 0.3s ease; /* Transición suave para el color */
+}
+
+.form-label a:hover {
+    text-decoration: underline;
+    color: var(--color-hover);
+}
+
+.form-input {
+    padding: 0.7em 1em;
+    font-size: 1em;
+    border: 1px solid var(--color-dos);
+    border-radius: 8px;
+    width: 100%;
+    min-width: 250px;
+    max-width: 350px;
+    transition: all 0.3s ease;
+}
+
+.form-input:focus,.form-select:focus  {
+    border-color: var(--color-dos);
+    background-color: var(--color-hover);
+    color: var(--color-cuatro);
+}
+
+/* Estilos para el select */
+.form-select {
+    padding: 0.7em 1em;
+    font-size: 1em;
+    border: 1px solid var(--color-dos);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    background-color: white;  /* Fondo blanco para consistencia */
+    appearance: none;  /* Quitar estilo por defecto del navegador */
+}
+
+.form-select option {
+    padding: 0.9em 1em;
+    font-size: 1em;
+    border-radius: 8px;
+}
+
+.form-textarea {
+    transition: all 0.3s ease;
+    width: 100%;
+    min-height: 120px; /* Altura mínima para el textarea */
+    resize: vertical; /* Permitir redimensionar verticalmente */
+}
+
+/* Estilos para el input de archivo */
+.archivo_label {
+    border: 1px solid #999;
+    color: var(--color-dos);
+    width: 100%;
+    max-width: 350px;
+    padding: 40px 0;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: border-color 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    text-align: center;
+}
+
+.archivo_label:hover {
+    border-color: var(--color-dos);
+}
+
+.archivo_input {
+    display: none;
+}
+
+/* Contenedor para ver la imagen del formulario */
+.mostrarImagen_archivo {
+    min-height: 300px;
+    height: auto;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+    pointer-events: none;
+    border-radius: 10px;
+    aspect-ratio: 1/1;
+}
+/* Estilos para los campos de color */
+.form-input_color {
+    width: 100%;
+    max-width: 110px;
+    height: 50px;
+    padding: 0.1em .5em;
+    border: 1px solid var(--color-dos);
+    border-radius: 5px;
+}
+
+.form-input_color:focus {
+    border-color: var(--color-dos);
+    background-color: var(--color-hover);
+}
+/* Estilos para los campos de texto hexadecimal */
+.form-input_hex {
+    max-width: 100px;
+}
+
+.form-input_hex:focus {
+    border-color: var(--color-dos);
+    background-color: var(--color-hover);
+}
+
+/* Estilos para alinear los selectores de color y los campos de texto */
+.color-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+/* Ajustes generales para el footer del formulario */
+.form-footer_container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    width: 100%;
+    max-width: 600px;
+    padding: 1em;
+    font-size: 1em;
+    z-index: 4;
+}
+
+@media (max-width: 450px) {
+    .form-footer_container {
+        padding: 1em 0.5em;
+    }
+}
+
+.form-footer_boton {
+    background-color: var(--color-uno);
+    color: var(--color-cuatro);
+    padding: 0.7em 1.5em;
+    border-radius: 8px;
+    font-size: .7em;
+    transition: background-color 0.3s ease;
+}
+
+.form-footer_boton:hover {
+    background-color: var(--color-hover);
+}
+
+/* Estilos para el botón de enviar el formulario */
+.boton_enviar {
+    background-color: var(--color-tres);
+    color: var(--color-cuatro);
+    padding: 0.7em 1.5em;
+    border-radius: 8px;
+    font-size: .7em;
+    transition: background-color 0.3s ease;
+}
+
+.boton_enviar:hover {
+    background-color: var(--color-hover);
+}
+
+/* Botón para cerrar el formulario */
+.form_boton {
+    cursor: pointer;
+    font-size: 1em;
+    color: var(--color-dos);
+    transition: transform 0.3s ease;
+}
+
+.form_boton:hover {
+    transform: scale(1.1);
+}

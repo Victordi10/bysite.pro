@@ -1,0 +1,26 @@
+
+3. Navegar a la Carpeta de Instalación de XAMPP
+cd /opt/lampp
+
+
+4. Iniciar el Servidor XAMPP
+sudo ./xampp start
+
+
+Para detener XAMPP:
+sudo ./xampp stop
+
+Para reiniciar XAMPP:
+sudo ./xampp restart
+
+Para verificar el estado de los servicios de XAMPP:
+sudo ./xampp status
+
+
+Luego, puedes crear nuevos proyectos simplemente ejecutando:
+create-vite nombre-de-tu-app --template react
+http://localhost:5173/
+npm create vite@latest nombre-de-tu-app -- --template react
+cd nombre-de-tu-app
+npm install
+npm run dev
