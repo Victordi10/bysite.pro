@@ -6,9 +6,9 @@ const path = require('path');
 const fetch = require("node-fetch");
 
 //produccion
-const accessToken = "APP_USR-4170250285647322-042813-92a8be99d7f5cd9264f77aaff6eb5979-800801457";
+const accessToken = "token-mercadopago";
 //prueba
-//const accessToken = "APP_USR-7808436191698299-051023-5d2307e3487c43c2e1d6b70f715abab1-1808780552";
+//const accessToken = "fvf";
 //url de exito de suscripcion exitosa
 const urlExito = "https://www.yoursite.com"
 
